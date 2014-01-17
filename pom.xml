@@ -247,7 +247,7 @@
                 <groupId>org.liquibase</groupId>
                 <artifactId>liquibase-maven-plugin</artifactId>
                 <version>3.0.5</version>
-          <configuration>
+                <configuration>
                     <changeLogFile>grails-app/migrations/changelog.xml</changeLogFile>
                     <driver>${jdbc.driverClassName}</driver>
                     <url>${jdbc.url}</url>
@@ -260,17 +260,16 @@
                             <value>${atomdb.default_schema}</value>
                         </property>
                     </systemProperties>
-           </configuration>                
-      <executions>
-        <execution>
-          <phase>process-resources</phase>
-          <goals>
-            <goal>update</goal>
-          </goals>
-        </execution>
-      </executions>
+                </configuration>                
+                <executions>
+                    <execution>
+                      <phase>process-resources</phase>
+                      <goals>
+                        <goal>update</goal>
+                      </goals>
+                    </execution>
+                </executions>
             </plugin>
-
         </plugins>
     </build>
 
