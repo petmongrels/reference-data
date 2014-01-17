@@ -15,6 +15,7 @@ import org.ict4h.atomfeed.server.service.EventServiceImpl;
 
 
 public class AtomFeedService {
+    public static final String REFERENCE_DATA = "referenceData";
     private Connection connection;
 
     protected Log log = LogFactory.getLog(getClass());
@@ -26,8 +27,8 @@ public class AtomFeedService {
     }
 
     public void publish(String messageType, String entityUrl) {
-        log.debug("AtomFeedService:" + entityUrl);
-        eventService.notify(new Event(UUID.randomUUID().toString(), messageType, DateTime.now(), (URI) null, entityUrl, "referenceData"));
+        log.debug("publishing event for " + messageType + ". Url -> " + entityUrl);
+        eventService.notify(new Event(UUID.randomUUID().toString(), messageType, DateTime.now(), (URI) null, entityUrl, REFERENCE_DATA));
     }
 
 }
