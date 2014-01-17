@@ -2,7 +2,7 @@
 <databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd">
     <changeSet author="tw" id="1">
         <comment>Create Department table</comment>        
-        <createTable tableName="department" schemaName="${schemaName}" >
+        <createTable tableName="department">
             <column name="id" type="int">
                 <constraints nullable="false" primaryKey="true" primaryKeyName="department_pkey"/>
             </column>
@@ -23,7 +23,7 @@
 
     <changeSet author="tw" id="2">
         <comment>Create Test table</comment>   
-        <createTable tableName="test" schemaName="${schemaName}" >
+        <createTable tableName="test">
             <column name="id" type="int">
                 <constraints nullable="false" primaryKey="true" primaryKeyName="test_pkey"/>
             </column>
@@ -50,26 +50,20 @@
 
     <changeSet author="tw" id="3">
         <comment>Unique constraint on Department 'name'</comment>   
-        <addUniqueConstraint columnNames="name" constraintName="department_name_key" deferrable="false" disabled="false" initiallyDeferred="false" tableName="department" schemaName="${schemaName}" />
+        <addUniqueConstraint columnNames="name" constraintName="department_name_key" deferrable="false" disabled="false" initiallyDeferred="false" tableName="department" />
     </changeSet>
 
     <changeSet author="tw" id="4">
         <comment>Unique constraint on Test 'name'</comment>   
-        <addUniqueConstraint columnNames="name" constraintName="test_name_key" deferrable="false" disabled="false" initiallyDeferred="false" tableName="test" schemaName="${schemaName}" />
+        <addUniqueConstraint columnNames="name" constraintName="test_name_key" deferrable="false" disabled="false" initiallyDeferred="false" tableName="test"/>
     </changeSet>
 
     <changeSet author="tw" id="5">
         <comment>Foreign key constraint on Department in Test</comment>   
-        <addForeignKeyConstraint baseColumnNames="department_id" baseTableName="test" baseTableSchemaName="${schemaName}" constraintName="fk36449289c26e86" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="department" referencedTableSchemaName="${schemaName}" referencesUniqueColumn="false"  />
+        <addForeignKeyConstraint baseColumnNames="department_id" baseTableName="test" constraintName="fk36449289c26e86" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="department" referencesUniqueColumn="false"  />
     </changeSet>
-
-    <changeSet author="tw" id="6">
-        <comment>Hibernate sequence</comment>   
-        <createSequence schemaName="${schemaName}" sequenceName="hibernate_sequence"/>
-    </changeSet>
-
     <changeSet author="ict4h" id="7">
-        <createTable tableName="event_records" schemaName="${schemaName}">
+        <createTable tableName="event_records">
             <column name="id" type="serial">
                 <constraints nullable="false" primaryKey="true"/>
             </column>
@@ -80,7 +74,7 @@
             <!-- TODO: Change to CLOB -->
             <column name="object" type="varchar(1000)"/>
         </createTable>
-        <createTable tableName="chunking_history" schemaName="${schemaName}">
+        <createTable tableName="chunking_history">
             <column name="id" type="serial">
                 <constraints nullable="false" primaryKey="true"/>
             </column>
@@ -91,24 +85,24 @@
         </createTable>
     </changeSet>
     <changeSet author="ict4h" id="8" >
-        <modifyDataType tableName="chunking_history" schemaName="${schemaName}" columnName="id" newDataType="int"/>
-        <addAutoIncrement tableName="chunking_history" schemaName="${schemaName}" columnName="id" columnDataType="int"/>
-        <modifyDataType tableName="event_records" schemaName="${schemaName}" columnName="id" newDataType="int"/>
-        <addAutoIncrement tableName="event_records" schemaName="${schemaName}" columnName="id" columnDataType="int"/>
+        <modifyDataType tableName="chunking_history" columnName="id" newDataType="int"/>
+        <addAutoIncrement tableName="chunking_history" columnName="id" columnDataType="int"/>
+        <modifyDataType tableName="event_records" columnName="id" newDataType="int"/>
+        <addAutoIncrement tableName="event_records" columnName="id" columnDataType="int"/>
     </changeSet>
     <changeSet author="ict4h" id="9" >
-        <insert tableName="chunking_history" schemaName="${schemaName}">
+        <insert tableName="chunking_history">
             <column name="chunk_length" valueNumeric="5"></column>
             <column name="start" valueNumeric="1"></column>
         </insert>
     </changeSet>
     <changeSet author="ict4h" id="10" >
-        <addColumn tableName="event_records" schemaName="${schemaName}">
+        <addColumn tableName="event_records">
             <column name="category" type="varchar(255)"></column>
         </addColumn>
     </changeSet>
     <changeSet author="ict4h" id="11">
-        <createTable tableName="event_records_offset_marker" schemaName="${schemaName}">
+        <createTable tableName="event_records_offset_marker">
             <column name="id" type="int" autoIncrement="true">
                 <constraints nullable="false" primaryKey="true"/>
             </column>
