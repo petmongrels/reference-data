@@ -16,12 +16,9 @@ class Test {
         description(widget: 'textarea')
     }
 
-//    static belongsTo = [Panel]
-
-    static hasMany = {
-        departments: Department
-        samples: Sample
-//        panels: Panel
+    static belongsTo = {
+        sample: Sample
+        department: Department
     }
 
     static mapping = {
@@ -30,10 +27,6 @@ class Test {
         id generator:'sequence', params:[sequence:'TEST_SEQ']
     }
 
-    @Override
-    String toString() {
-        return name
-    }
     static searchable = true
 
     Integer id
@@ -46,7 +39,12 @@ class Test {
     String description
     String shortName
     double salePrice
+    int sortOrder
     Department department
     Sample sample
-    int sortOrder
+
+    @Override
+    String toString() {
+        return name
+    }
 }

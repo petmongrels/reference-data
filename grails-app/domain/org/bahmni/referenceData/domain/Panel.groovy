@@ -16,8 +16,11 @@ class Panel {
         id generator:'sequence', params:[sequence:'PANEL_SEQ']
     }
 
+    static belongsTo = {
+        sample: Sample
+    }
+
     static hasMany = {
-        samples: Sample
         panelTests: PanelTest
     }
 
@@ -26,14 +29,12 @@ class Panel {
     String name
     String description
     String shortName
-    Sample sample
     double salePrice
-
     boolean isActive = true
     Date dateCreated
     Date lastUpdated
-
     Integer sortOrder
+    Sample sample
 
     @Override
     String toString() {
