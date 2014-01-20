@@ -306,7 +306,7 @@
 
     <changeSet author="tw" id="19">
         <comment>Panel Test Sequence</comment>
-        <createSequence schemaName="${schemaName}" sequenceName="PANEL_TEST_SEQ"/>
+        <createSequence sequenceName="PANEL_TEST_SEQ"/>
     </changeSet>
 
 </databaseChangeLog>
