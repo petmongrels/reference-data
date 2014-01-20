@@ -27,7 +27,7 @@ class BahmniHibernateListener implements PostInsertEventListener, PostUpdateEven
         def entityId = getEntityId(event)
         def entityName = getEntityName(event).toLowerCase()
 
-        String eventUrl = "/referenceData/ws/rest/v1/" + entityName + "/" + entityId;
+        String eventUrl = "/reference-data/" + entityName + "/show/" + entityId;
 
         new AtomFeedService(getConnection(event)).publish(entityName, eventUrl);
     }
