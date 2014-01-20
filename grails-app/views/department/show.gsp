@@ -32,6 +32,33 @@
 				</li>
 				</g:if>
 			
+				<g:if test="${departmentInstance?.isActive}">
+				<li class="fieldcontain">
+					<span id="isActive-label" class="property-label"><g:message code="department.isActive.label" default="Is Active" /></span>
+					
+						<span class="property-value" aria-labelledby="isActive-label"><g:formatBoolean boolean="${departmentInstance?.isActive}" /></span>
+					
+				</li>
+				</g:if>
+			
+				<g:if test="${departmentInstance?.uuid}">
+				<li class="fieldcontain">
+					<span id="uuid-label" class="property-label"><g:message code="department.uuid.label" default="Uuid" /></span>
+					
+						<span class="property-value" aria-labelledby="uuid-label"><g:fieldValue bean="${departmentInstance}" field="uuid"/></span>
+					
+				</li>
+				</g:if>
+			
+				<g:if test="${departmentInstance?.description}">
+				<li class="fieldcontain">
+					<span id="description-label" class="property-label"><g:message code="department.description.label" default="Description" /></span>
+					
+						<span class="property-value" aria-labelledby="description-label"><g:fieldValue bean="${departmentInstance}" field="description"/></span>
+					
+				</li>
+				</g:if>
+			
 				<g:if test="${departmentInstance?.dateCreated}">
 				<li class="fieldcontain">
 					<span id="dateCreated-label" class="property-label"><g:message code="department.dateCreated.label" default="Date Created" /></span>

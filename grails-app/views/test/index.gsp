@@ -26,13 +26,15 @@
 					
 						<g:sortableColumn property="name" title="${message(code: 'test.name.label', default: 'Name')}" />
 					
-						<g:sortableColumn property="cost" title="${message(code: 'test.cost.label', default: 'Cost')}" />
+						<g:sortableColumn property="shortName" title="${message(code: 'test.shortName.label', default: 'Short Name')}" />
+					
+						<g:sortableColumn property="salePrice" title="${message(code: 'test.salePrice.label', default: 'Sale Price')}" />
+					
+						<g:sortableColumn property="isActive" title="${message(code: 'test.isActive.label', default: 'Is Active')}" />
+					
+						<g:sortableColumn property="uuid" title="${message(code: 'test.uuid.label', default: 'Uuid')}" />
 					
 						<th><g:message code="test.department.label" default="Department" /></th>
-					
-						<g:sortableColumn property="dateCreated" title="${message(code: 'test.dateCreated.label', default: 'Date Created')}" />
-					
-						<g:sortableColumn property="lastUpdated" title="${message(code: 'test.lastUpdated.label', default: 'Last Updated')}" />
 					
 					</tr>
 				</thead>
@@ -42,13 +44,15 @@
 					
 						<td><g:link action="show" id="${testInstance.id}">${fieldValue(bean: testInstance, field: "name")}</g:link></td>
 					
-						<td>${fieldValue(bean: testInstance, field: "cost")}</td>
+						<td>${fieldValue(bean: testInstance, field: "shortName")}</td>
+					
+						<td>${fieldValue(bean: testInstance, field: "salePrice")}</td>
+					
+						<td><g:formatBoolean boolean="${testInstance.isActive}" /></td>
+					
+						<td>${fieldValue(bean: testInstance, field: "uuid")}</td>
 					
 						<td>${fieldValue(bean: testInstance, field: "department")}</td>
-					
-						<td><g:formatDate date="${testInstance.dateCreated}" /></td>
-					
-						<td><g:formatDate date="${testInstance.lastUpdated}" /></td>
 					
 					</tr>
 				</g:each>

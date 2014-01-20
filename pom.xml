@@ -19,7 +19,6 @@
         <jdbc.url>jdbc:postgresql://localhost/reference_data</jdbc.url>
         <jdbc.username>reference_data</jdbc.username>
         <jdbc.password>reference_data</jdbc.password>
-        <atomdb.default_schema></atomdb.default_schema>
     </properties>
 
     <dependencies>
@@ -251,14 +250,7 @@
                     <url>${jdbc.url}</url>
                     <username>${jdbc.username}</username>
                     <password>${jdbc.password}</password>
-                     <defaultSchemaName>${atomdb.default_schema}</defaultSchemaName>
-                    <systemProperties>
-                        <property>
-                            <name>schemaName</name>
-                            <value>${atomdb.default_schema}</value>
-                        </property>
-                    </systemProperties>
-                </configuration>                
+                </configuration>
                 <executions>
                     <execution>
                       <phase>process-resources</phase>

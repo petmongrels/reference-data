@@ -5,9 +5,9 @@ package org.bahmni.referenceData.domain
 import grails.test.mixin.*
 import spock.lang.*
 
-@TestFor(TestController)
-@Mock(Test)
-class TestControllerSpec extends Specification {
+@TestFor(PanelController)
+@Mock(Panel)
+class PanelControllerSpec extends Specification {
 
     def populateValidParams(params) {
         assert params != null
@@ -21,8 +21,8 @@ class TestControllerSpec extends Specification {
             controller.index()
 
         then:"The model is correct"
-            !model.testInstanceList
-            model.testInstanceCount == 0
+            !model.panelInstanceList
+            model.panelInstanceCount == 0
     }
 
     void "Test the create action returns the correct model"() {
@@ -30,31 +30,31 @@ class TestControllerSpec extends Specification {
             controller.create()
 
         then:"The model is correctly created"
-            model.testInstance!= null
+            model.panelInstance!= null
     }
 
     void "Test the save action correctly persists an instance"() {
 
         when:"The save action is executed with an invalid instance"
-            def test = new Test()
-            test.validate()
-            controller.save(test)
+            def panel = new Panel()
+            panel.validate()
+            controller.save(panel)
 
         then:"The create view is rendered again with the correct model"
-            model.testInstance!= null
+            model.panelInstance!= null
             view == 'create'
 
         when:"The save action is executed with a valid instance"
             response.reset()
             populateValidParams(params)
-            test = new Test(params)
+            panel = new Panel(params)
 
-            controller.save(test)
+            controller.save(panel)
 
         then:"A redirect is issued to the show action"
-            response.redirectedUrl == '/test/show/1'
+            response.redirectedUrl == '/panel/show/1'
             controller.flash.message != null
-            Test.count() == 1
+            Panel.count() == 1
     }
 
     void "Test that the show action returns the correct model"() {
@@ -66,11 +66,11 @@ class TestControllerSpec extends Specification {
 
         when:"A domain instance is passed to the show action"
             populateValidParams(params)
-            def test = new Test(params)
-            controller.show(test)
+            def panel = new Panel(params)
+            controller.show(panel)
 
         then:"A model is populated containing the domain instance"
-            model.testInstance == test
+            model.panelInstance == panel
     }
 
     void "Test that the edit action returns the correct model"() {
@@ -82,11 +82,11 @@ class TestControllerSpec extends Specification {
 
         when:"A domain instance is passed to the edit action"
             populateValidParams(params)
-            def test = new Test(params)
-            controller.edit(test)
+            def panel = new Panel(params)
+            controller.edit(panel)
 
         then:"A model is populated containing the domain instance"
-            model.testInstance == test
+            model.panelInstance == panel
     }
 
     void "Test the update action performs an update on a valid domain instance"() {
@@ -94,28 +94,28 @@ class TestControllerSpec extends Specification {
             controller.update(null)
 
         then:"A 404 error is returned"
-            response.redirectedUrl == '/test/index'
+            response.redirectedUrl == '/panel/index'
             flash.message != null
 
 
         when:"An invalid domain instance is passed to the update action"
             response.reset()
-            def test = new Test()
-            test.validate()
-            controller.update(test)
+            def panel = new Panel()
+            panel.validate()
+            controller.update(panel)
 
         then:"The edit view is rendered again with the invalid instance"
             view == 'edit'
-            model.testInstance == test
+            model.panelInstance == panel
 
         when:"A valid domain instance is passed to the update action"
             response.reset()
             populateValidParams(params)
-            test = new Test(params).save(flush: true)
-            controller.update(test)
+            panel = new Panel(params).save(flush: true)
+            controller.update(panel)
 
         then:"A redirect is issues to the show action"
-            response.redirectedUrl == "/test/show/$test.id"
+            response.redirectedUrl == "/panel/show/$panel.id"
             flash.message != null
     }
 
@@ -124,23 +124,23 @@ class TestControllerSpec extends Specification {
             controller.delete(null)
 
         then:"A 404 is returned"
-            response.redirectedUrl == '/test/index'
+            response.redirectedUrl == '/panel/index'
             flash.message != null
 
         when:"A domain instance is created"
             response.reset()
             populateValidParams(params)
-            def test = new Test(params).save(flush: true)
+            def panel = new Panel(params).save(flush: true)
 
         then:"It exists"
-            Test.count() == 1
+            Panel.count() == 1
 
         when:"The domain instance is passed to the delete action"
-            controller.delete(test)
+            controller.delete(panel)
 
         then:"The instance is deleted"
-            Test.count() == 0
-            response.redirectedUrl == '/test/index'
+            Panel.count() == 0
+            response.redirectedUrl == '/panel/index'
             flash.message != null
     }
 }

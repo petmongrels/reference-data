@@ -1,35 +1,32 @@
 package org.bahmni.referenceData.domain
 
-import groovy.util.logging.Log4j
-
-@Log4j
-class Department {
+class Sample {
     static constraints = {
-        name(blank : false, unique : true)
+        name(blank: false, unique: true)
+        shortName(blank: false, unique: true)
+        sortOrder(blank: false)
         isActive(blank: false)
         uuid(blank: false, unique: true, minSize: 36, maxSize: 36)
-        description(widget: 'textarea')
     }
 
     static mapping = {
         sort isActive : "desc"
-        tablePerHierarchy(false)
-        id generator:'sequence', params:[sequence:'DEPARTMENT_SEQ']
+        id generator:'sequence', params:[sequence:'SAMPLE_SEQ']
     }
-
-    static searchable =  true
 
     Integer id
     String uuid = UUID.randomUUID()
     String name
+    String shortName
     boolean isActive = true
     Date dateCreated
     Date lastUpdated
 
-    String description
+    Integer sortOrder
 
     @Override
     String toString() {
         return name
     }
+
 }

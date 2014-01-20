@@ -7,11 +7,6 @@
 
 	<session-factory>
 		<mapping package="org.bahmni.referenceData.domain" />
-		<mapping class="org.bahmni.referenceData.domain.Test" />
-	<!--
-
-		<mapping resource='someresource.hbm.xml'/>
-	-->
 	</session-factory>
 
 </hibernate-configuration>

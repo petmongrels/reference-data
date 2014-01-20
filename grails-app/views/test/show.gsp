@@ -32,11 +32,38 @@
 				</li>
 				</g:if>
 			
-				<g:if test="${testInstance?.cost}">
+				<g:if test="${testInstance?.shortName}">
 				<li class="fieldcontain">
-					<span id="cost-label" class="property-label"><g:message code="test.cost.label" default="Cost" /></span>
+					<span id="shortName-label" class="property-label"><g:message code="test.shortName.label" default="Short Name" /></span>
 					
-						<span class="property-value" aria-labelledby="cost-label"><g:fieldValue bean="${testInstance}" field="cost"/></span>
+						<span class="property-value" aria-labelledby="shortName-label"><g:fieldValue bean="${testInstance}" field="shortName"/></span>
+					
+				</li>
+				</g:if>
+			
+				<g:if test="${testInstance?.salePrice}">
+				<li class="fieldcontain">
+					<span id="salePrice-label" class="property-label"><g:message code="test.salePrice.label" default="Sale Price" /></span>
+					
+						<span class="property-value" aria-labelledby="salePrice-label"><g:fieldValue bean="${testInstance}" field="salePrice"/></span>
+					
+				</li>
+				</g:if>
+			
+				<g:if test="${testInstance?.isActive}">
+				<li class="fieldcontain">
+					<span id="isActive-label" class="property-label"><g:message code="test.isActive.label" default="Is Active" /></span>
+					
+						<span class="property-value" aria-labelledby="isActive-label"><g:formatBoolean boolean="${testInstance?.isActive}" /></span>
+					
+				</li>
+				</g:if>
+			
+				<g:if test="${testInstance?.uuid}">
+				<li class="fieldcontain">
+					<span id="uuid-label" class="property-label"><g:message code="test.uuid.label" default="Uuid" /></span>
+					
+						<span class="property-value" aria-labelledby="uuid-label"><g:fieldValue bean="${testInstance}" field="uuid"/></span>
 					
 				</li>
 				</g:if>
@@ -46,6 +73,33 @@
 					<span id="department-label" class="property-label"><g:message code="test.department.label" default="Department" /></span>
 					
 						<span class="property-value" aria-labelledby="department-label"><g:link controller="department" action="show" id="${testInstance?.department?.id}">${testInstance?.department?.encodeAsHTML()}</g:link></span>
+					
+				</li>
+				</g:if>
+			
+				<g:if test="${testInstance?.sample}">
+				<li class="fieldcontain">
+					<span id="sample-label" class="property-label"><g:message code="test.sample.label" default="Sample" /></span>
+					
+						<span class="property-value" aria-labelledby="sample-label"><g:link controller="sample" action="show" id="${testInstance?.sample?.id}">${testInstance?.sample?.encodeAsHTML()}</g:link></span>
+					
+				</li>
+				</g:if>
+			
+				<g:if test="${testInstance?.sortOrder}">
+				<li class="fieldcontain">
+					<span id="sortOrder-label" class="property-label"><g:message code="test.sortOrder.label" default="Sort Order" /></span>
+					
+						<span class="property-value" aria-labelledby="sortOrder-label"><g:fieldValue bean="${testInstance}" field="sortOrder"/></span>
+					
+				</li>
+				</g:if>
+			
+				<g:if test="${testInstance?.description}">
+				<li class="fieldcontain">
+					<span id="description-label" class="property-label"><g:message code="test.description.label" default="Description" /></span>
+					
+						<span class="property-value" aria-labelledby="description-label"><g:fieldValue bean="${testInstance}" field="description"/></span>
 					
 				</li>
 				</g:if>

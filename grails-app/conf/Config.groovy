@@ -34,6 +34,7 @@ grails.mime.types = [
     hal:           ['application/hal+json','application/hal+xml'],
     xml:           ['text/xml', 'application/xml']
 ]
+grails.mime.use.accept.header = true
 
 // URL Mapping Cache Max Size, defaults to 5000
 //grails.urlmapping.cache.maxsize = 1000
