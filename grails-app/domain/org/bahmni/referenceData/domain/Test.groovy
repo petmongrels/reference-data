@@ -16,15 +16,15 @@ class Test {
         description(widget: 'textarea')
     }
 
-    static belongsTo = {
-        sample: Sample
-        department: Department
-    }
+    static belongsTo = [Sample, Department, Panel]
+
+    static hasMany = [ panels: Panel ]
 
     static mapping = {
         sort isActive : "desc"
         tablePerHierarchy(false)
         id generator:'sequence', params:[sequence:'TEST_SEQ']
+        panels joinTable: "panel_test"
     }
 
     static searchable = true

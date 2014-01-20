@@ -14,15 +14,12 @@ class Panel {
     static mapping = {
         sort isActive : "desc"
         id generator:'sequence', params:[sequence:'PANEL_SEQ']
+        tests joinTable: "panel_test"
     }
 
-    static belongsTo = {
-        sample: Sample
-    }
+    static belongsTo = [Sample]
 
-    static hasMany = {
-        panelTests: PanelTest
-    }
+    static hasMany = [ tests: Test ]
 
     Integer id
     String uuid = UUID.randomUUID()

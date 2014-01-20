@@ -269,22 +269,10 @@
     <changeSet author="tw" id="18">
         <comment>Panel Test Association</comment>
         <createTable tableName="panel_test" >
-            <column name="id" type="int" autoIncrement="true">
-                <constraints nullable="false" primaryKey="true"/>
-            </column>
             <column name="panel_id" type="int">
                 <constraints nullable="false"/>
             </column>
             <column name="test_id" type="int">
-                <constraints nullable="false"/>
-            </column>
-            <column name="version" type="int">
-                <constraints nullable="false"/>
-            </column>
-            <column name="date_created" type="TIMESTAMP WITH TIME ZONE">
-                <constraints nullable="false"/>
-            </column>
-            <column name="last_updated" type="TIMESTAMP WITH TIME ZONE">
                 <constraints nullable="false"/>
             </column>
         </createTable>
@@ -300,8 +288,9 @@
                                  deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION"
                                  referencedColumnNames="id" referencedTableName="test"
                                  referencesUniqueColumn="false"/>
-
-
+        <addPrimaryKey columnNames="panel_id, test_id"
+                       constraintName="pk_panel_test"
+                       tableName="panel_test"/>
     </changeSet>
 
     <changeSet author="tw" id="19">

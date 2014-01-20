@@ -122,6 +122,17 @@
 				</li>
 				</g:if>
 			
+				<g:if test="${testInstance?.panels}">
+				<li class="fieldcontain">
+					<span id="panels-label" class="property-label"><g:message code="test.panels.label" default="Panels" /></span>
+					
+						<g:each in="${testInstance.panels}" var="p">
+						<span class="property-value" aria-labelledby="panels-label"><g:link controller="panel" action="show" id="${p.id}">${p?.encodeAsHTML()}</g:link></span>
+						</g:each>
+					
+				</li>
+				</g:if>
+			
 			</ol>
 			<g:form url="[resource:testInstance, action:'delete']" method="DELETE">
 				<fieldset class="buttons">

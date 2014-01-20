@@ -66,3 +66,11 @@
 	<g:select id="sample" name="sample.id" from="${org.bahmni.referenceData.domain.Sample.list()}" optionKey="id" required="" value="${panelInstance?.sample?.id}" class="many-to-one"/>
 </div>
 
+<div class="fieldcontain ${hasErrors(bean: panelInstance, field: 'tests', 'error')} ">
+	<label for="tests">
+		<g:message code="panel.tests.label" default="Tests" />
+		
+	</label>
+	<g:select name="tests" from="${org.bahmni.referenceData.domain.Test.list()}" multiple="multiple" optionKey="id" size="5" value="${panelInstance?.tests*.id}" class="many-to-many"/>
+</div>
+

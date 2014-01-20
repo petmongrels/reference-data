@@ -7,6 +7,11 @@ class UrlMappings {
             }
         }
 
+        "/tests"(resources:'test')
+        "/panels"(resources:'panel')
+        "/departments"(resources:'department')
+        "/samples"(resources:'sample')
+
         "/"(view:"/homepage")
         "500"(view:'/error')
 	}

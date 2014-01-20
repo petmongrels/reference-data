@@ -74,3 +74,11 @@
 	<g:textArea name="description" cols="40" rows="5" value="${testInstance?.description}"/>
 </div>
 
+<div class="fieldcontain ${hasErrors(bean: testInstance, field: 'panels', 'error')} ">
+	<label for="panels">
+		<g:message code="test.panels.label" default="Panels" />
+		
+	</label>
+	
+</div>
+
