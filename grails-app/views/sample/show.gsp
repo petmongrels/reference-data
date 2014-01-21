@@ -59,15 +59,6 @@
 				</li>
 				</g:if>
 			
-				<g:if test="${sampleInstance?.uuid}">
-				<li class="fieldcontain">
-					<span id="uuid-label" class="property-label"><g:message code="sample.uuid.label" default="Uuid" /></span>
-					
-						<span class="property-value" aria-labelledby="uuid-label"><g:fieldValue bean="${sampleInstance}" field="uuid"/></span>
-					
-				</li>
-				</g:if>
-			
 				<g:if test="${sampleInstance?.dateCreated}">
 				<li class="fieldcontain">
 					<span id="dateCreated-label" class="property-label"><g:message code="sample.dateCreated.label" default="Date Created" /></span>

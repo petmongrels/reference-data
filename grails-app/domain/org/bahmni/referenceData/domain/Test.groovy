@@ -9,7 +9,6 @@ class Test {
         shortName(blank: false)
         salePrice(blank: false)
         isActive(blank: false)
-        uuid(blank: false, unique: true, minSize: 36, maxSize: 36)
         department(blank: false)
         sample(blank: false)
         sortOrder(blank: false)
@@ -22,15 +21,12 @@ class Test {
 
     static mapping = {
         sort isActive : "desc"
-        tablePerHierarchy(false)
-        id generator:'sequence', params:[sequence:'TEST_SEQ']
         panels joinTable: "panel_test"
     }
 
     static searchable = true
 
-    Integer id
-    String uuid = UUID.randomUUID()
+    UUID id
     String name
     boolean isActive = true
     Date dateCreated

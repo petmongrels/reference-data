@@ -59,15 +59,6 @@
 				</li>
 				</g:if>
 			
-				<g:if test="${testInstance?.uuid}">
-				<li class="fieldcontain">
-					<span id="uuid-label" class="property-label"><g:message code="test.uuid.label" default="Uuid" /></span>
-					
-						<span class="property-value" aria-labelledby="uuid-label"><g:fieldValue bean="${testInstance}" field="uuid"/></span>
-					
-				</li>
-				</g:if>
-			
 				<g:if test="${testInstance?.department}">
 				<li class="fieldcontain">
 					<span id="department-label" class="property-label"><g:message code="test.department.label" default="Department" /></span>

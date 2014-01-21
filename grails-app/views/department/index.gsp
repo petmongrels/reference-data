@@ -28,8 +28,6 @@
 					
 						<g:sortableColumn property="isActive" title="${message(code: 'department.isActive.label', default: 'Is Active')}" />
 					
-						<g:sortableColumn property="uuid" title="${message(code: 'department.uuid.label', default: 'Uuid')}" />
-					
 						<g:sortableColumn property="description" title="${message(code: 'department.description.label', default: 'Description')}" />
 					
 						<g:sortableColumn property="dateCreated" title="${message(code: 'department.dateCreated.label', default: 'Date Created')}" />
@@ -45,8 +43,6 @@
 						<td><g:link action="show" id="${departmentInstance.id}">${fieldValue(bean: departmentInstance, field: "name")}</g:link></td>
 					
 						<td><g:formatBoolean boolean="${departmentInstance.isActive}" /></td>
-					
-						<td>${fieldValue(bean: departmentInstance, field: "uuid")}</td>
 					
 						<td>${fieldValue(bean: departmentInstance, field: "description")}</td>
 					

@@ -59,15 +59,6 @@
 				</li>
 				</g:if>
 			
-				<g:if test="${panelInstance?.uuid}">
-				<li class="fieldcontain">
-					<span id="uuid-label" class="property-label"><g:message code="panel.uuid.label" default="Uuid" /></span>
-					
-						<span class="property-value" aria-labelledby="uuid-label"><g:fieldValue bean="${panelInstance}" field="uuid"/></span>
-					
-				</li>
-				</g:if>
-			
 				<g:if test="${panelInstance?.description}">
 				<li class="fieldcontain">
 					<span id="description-label" class="property-label"><g:message code="panel.description.label" default="Description" /></span>

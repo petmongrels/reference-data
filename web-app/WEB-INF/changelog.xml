@@ -5,11 +5,8 @@
     <changeSet author="tw" id="1">
         <comment>Create Department table</comment>
         <createTable tableName="department" >
-            <column name="id" type="int">
+            <column name="id" type="UUID">
                 <constraints nullable="false" primaryKey="true" primaryKeyName="department_pkey"/>
-            </column>
-            <column name="uuid" type="varchar(40)">
-                <constraints nullable="false"/>
             </column>
             <column name="version" type="int">
                 <constraints nullable="false"/>
@@ -35,11 +32,8 @@
     <changeSet author="tw" id="2">
         <comment>Create Sample table</comment>
         <createTable tableName="sample">
-            <column name="id" type="int">
+            <column name="id" type="UUID">
                 <constraints nullable="false" primaryKey="true" primaryKeyName="sample_pkey"/>
-            </column>
-            <column name="uuid" type="varchar(40)">
-                <constraints nullable="false"/>
             </column>
             <column name="version" type="int">
                 <constraints nullable="false"/>
@@ -68,11 +62,8 @@
     <changeSet author="tw" id="3">
         <comment>Create Panel table</comment>
         <createTable tableName="panel">
-            <column name="id" type="int">
+            <column name="id" type="UUID">
                 <constraints nullable="false" primaryKey="true" primaryKeyName="panel_pkey"/>
-            </column>
-            <column name="uuid" type="varchar(40)">
-                <constraints nullable="false"/>
             </column>
             <column name="version" type="int">
                 <constraints nullable="false"/>
@@ -92,7 +83,7 @@
             <column name="short_name" type="VARCHAR(10)">
                 <constraints nullable="false"/>
             </column>
-            <column name="sample_id" type="int">
+            <column name="sample_id" type="UUID">
                 <constraints nullable="false"/>
             </column>
             <column name="sale_price" type="FLOAT">
@@ -110,11 +101,8 @@
     <changeSet author="tw" id="4">
         <comment>Create Test table</comment>
         <createTable tableName="test">
-            <column name="id" type="int">
+            <column name="id" type="UUID">
                 <constraints nullable="false" primaryKey="true" primaryKeyName="test_pkey"/>
-            </column>
-            <column name="uuid" type="varchar(40)">
-                <constraints nullable="false"/>
             </column>
             <column name="version" type="int">
                 <constraints nullable="false"/>
@@ -137,13 +125,13 @@
             <column name="sale_price" type="FLOAT">
                 <constraints nullable="false"/>
             </column>
-            <column name="department_id" type="int">
+            <column name="department_id" type="UUID">
                 <constraints nullable="false"/>
             </column>
-            <column name="sample_id" type="int">
+            <column name="sample_id" type="UUID">
                 <constraints nullable="false"/>
             </column>
-            <column name="panel_id" type="int">
+            <column name="panel_id" type="UUID">
                 <constraints nullable="true"/>
             </column>
             <column name="sort_order" type="int">
@@ -198,14 +186,6 @@
                                  onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id"
                                  referencedTableName="sample"
                                  referencesUniqueColumn="false"/>
-    </changeSet>
-
-    <changeSet author="tw" id="11">
-        <comment>Sequences for Sample, Department, Test, Panel 'id' columns</comment>
-        <createSequence sequenceName="DEPARTMENT_SEQ"/>
-        <createSequence sequenceName="TEST_SEQ"/>
-        <createSequence sequenceName="SAMPLE_SEQ"/>
-        <createSequence sequenceName="PANEL_SEQ"/>
     </changeSet>
 
     <changeSet author="ict4h" id="12">
@@ -269,10 +249,10 @@
     <changeSet author="tw" id="18">
         <comment>Panel Test Association</comment>
         <createTable tableName="panel_test" >
-            <column name="panel_id" type="int">
+            <column name="panel_id" type="UUID">
                 <constraints nullable="false"/>
             </column>
-            <column name="test_id" type="int">
+            <column name="test_id" type="UUID">
                 <constraints nullable="false"/>
             </column>
         </createTable>
@@ -292,10 +272,4 @@
                        constraintName="pk_panel_test"
                        tableName="panel_test"/>
     </changeSet>
-
-    <changeSet author="tw" id="19">
-        <comment>Panel Test Sequence</comment>
-        <createSequence sequenceName="PANEL_TEST_SEQ"/>
-    </changeSet>
-
 </databaseChangeLog>

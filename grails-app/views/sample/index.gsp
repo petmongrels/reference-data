@@ -32,9 +32,9 @@
 					
 						<g:sortableColumn property="isActive" title="${message(code: 'sample.isActive.label', default: 'Is Active')}" />
 					
-						<g:sortableColumn property="uuid" title="${message(code: 'sample.uuid.label', default: 'Uuid')}" />
-					
 						<g:sortableColumn property="dateCreated" title="${message(code: 'sample.dateCreated.label', default: 'Date Created')}" />
+					
+						<g:sortableColumn property="lastUpdated" title="${message(code: 'sample.lastUpdated.label', default: 'Last Updated')}" />
 					
 					</tr>
 				</thead>
@@ -50,9 +50,9 @@
 					
 						<td><g:formatBoolean boolean="${sampleInstance.isActive}" /></td>
 					
-						<td>${fieldValue(bean: sampleInstance, field: "uuid")}</td>
-					
 						<td><g:formatDate date="${sampleInstance.dateCreated}" /></td>
+					
+						<td><g:formatDate date="${sampleInstance.lastUpdated}" /></td>
 					
 					</tr>
 				</g:each>

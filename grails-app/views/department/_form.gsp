@@ -18,14 +18,6 @@
 	<g:checkBox name="isActive" value="${departmentInstance?.isActive}" />
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: departmentInstance, field: 'uuid', 'error')} required">
-	<label for="uuid">
-		<g:message code="department.uuid.label" default="Uuid" />
-		<span class="required-indicator">*</span>
-	</label>
-	<g:textField name="uuid" maxlength="36" required="" value="${departmentInstance?.uuid}"/>
-</div>
-
 <div class="fieldcontain ${hasErrors(bean: departmentInstance, field: 'description', 'error')} ">
 	<label for="description">
 		<g:message code="department.description.label" default="Description" />
