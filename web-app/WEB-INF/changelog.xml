@@ -47,7 +47,7 @@
             <column name="name" type="VARCHAR(255)">
                 <constraints nullable="false" unique="true"/>
             </column>
-            <column name="short_name" type="VARCHAR(10)">
+            <column name="short_name" type="VARCHAR(255)">
                 <constraints nullable="true" unique="true"/>
             </column>
             <column name="is_active" type="boolean">
@@ -80,7 +80,7 @@
             <column name="description" type="VARCHAR(255)">
                 <constraints nullable="false"/>
             </column>
-            <column name="short_name" type="VARCHAR(10)">
+            <column name="short_name" type="VARCHAR(255)">
                 <constraints nullable="true" unique="true"/>
             </column>
             <column name="sample_id" type="UUID">
@@ -116,7 +116,7 @@
             <column name="name" type="VARCHAR(255)">
                 <constraints nullable="false" unique="true"/>
             </column>
-            <column name="short_name" type="VARCHAR(10)">
+            <column name="short_name" type="VARCHAR(255)">
                 <constraints nullable="true" unique="true"/>
             </column>
             <column name="description" type="VARCHAR(255)">
@@ -374,7 +374,7 @@
             <column name="generic_name" type="VARCHAR(255)">
                 <constraints nullable="true"/>
             </column>
-            <column name="short_name" type="VARCHAR(10)">
+            <column name="short_name" type="VARCHAR(255)">
                 <constraints nullable="true" unique="true"/>
             </column>
             <column name="form_id" type="UUID">
