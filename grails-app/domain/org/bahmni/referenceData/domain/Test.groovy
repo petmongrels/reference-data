@@ -4,14 +4,26 @@ import groovy.util.logging.Log4j
 
 @Log4j
 class Test {
+    UUID id
+    String name
+    boolean isActive = true
+    Date dateCreated
+    Date lastUpdated
+    String description
+    String shortName
+    double salePrice
+    int sortOrder
+    Department department
+    Sample sample
+
     static constraints = {
-        name(blank: false, unique: true)
-        shortName(blank: false)
-        salePrice(blank: false)
-        isActive(blank: false)
-        department(blank: false)
-        sample(blank: false)
-        sortOrder(blank: false)
+        name(nullable: false, blank: false, unique: true)
+        shortName(unique: true)
+        salePrice(nullable: false)
+        isActive(nullable: false)
+        department(nullable: false)
+        sample(nullable: false)
+        sortOrder(nullable: false)
         description(widget: 'textarea')
     }
 
@@ -25,19 +37,6 @@ class Test {
     }
 
     static searchable = true
-
-    UUID id
-    String name
-    boolean isActive = true
-    Date dateCreated
-    Date lastUpdated
-
-    String description
-    String shortName
-    double salePrice
-    int sortOrder
-    Department department
-    Sample sample
 
     @Override
     String toString() {

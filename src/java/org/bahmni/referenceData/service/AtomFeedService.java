@@ -15,14 +15,11 @@ import org.ict4h.atomfeed.server.service.EventServiceImpl;
 
 
 public class AtomFeedService {
-    public static final String REFERENCE_DATA = "referenceData";
-    private Connection connection;
-
+    public static final String REFERENCE_DATA = "reference_data";
     protected Log log = LogFactory.getLog(getClass());
     private final EventService eventService;
 
     public AtomFeedService(Connection connection) {
-        this.connection = connection;
         eventService = new EventServiceImpl(new AllEventRecordsJdbcImpl(new ReferenceDataConnectionProvider(connection)));
     }
 

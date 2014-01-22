@@ -4,9 +4,16 @@ import groovy.util.logging.Log4j
 
 @Log4j
 class Department {
+    UUID id
+    String name
+    Date dateCreated
+    Date lastUpdated
+    String description
+    boolean isActive = true
+
     static constraints = {
-        name(blank : false, unique : true)
-        isActive(blank: false)
+        name(nullable: false, blank : false, unique : true)
+        isActive(nullable: false)
         description(widget: 'textarea')
     }
 
@@ -15,14 +22,6 @@ class Department {
     }
 
     static searchable =  true
-
-    UUID id
-    String name
-    boolean isActive = true
-    Date dateCreated
-    Date lastUpdated
-
-    String description
 
     @Override
     String toString() {

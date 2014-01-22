@@ -7,10 +7,15 @@ class UrlMappings {
             }
         }
 
-        "/tests"(resources:'test')
-        "/panels"(resources:'panel')
-        "/departments"(resources:'department')
-        "/samples"(resources:'sample')
+        "/test"(resources:'test')
+        "/panel"(resources:'panel')
+        "/department"(resources:'department')
+        "/sample"(resources:'sample')
+        "/drug"(resources:'drug')
+        "/drug_category"(resources:'drugCategory')
+        "/drug_form"(resources:'drugForm')
+        "/unit_of_measure"(resources:'unitOfMeasure')
+        "/unit_of_measure_category"(resources:'unitOfMeasureCategory')
 
         "/"(view:"/homepage")
         "500"(view:'/error')

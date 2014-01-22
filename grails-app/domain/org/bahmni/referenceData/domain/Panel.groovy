@@ -1,12 +1,22 @@
 package org.bahmni.referenceData.domain
 
 class Panel {
+    UUID id
+    String name
+    String description
+    String shortName
+    double salePrice
+    boolean isActive = true
+    Date dateCreated
+    Date lastUpdated
+    Integer sortOrder
+    Sample sample
 
     static constraints = {
-        name(blank: false, unique: true)
-        shortName(blank: false, unique: true)
-        sortOrder(blank: false)
-        isActive(blank: false)
+        name(nullable: false, blank: false, unique: true)
+        shortName(unique: true)
+        sortOrder(nullable: false)
+        isActive(nullable: false)
         description(widget: 'textarea')
     }
 
@@ -18,17 +28,6 @@ class Panel {
     static belongsTo = [Sample]
 
     static hasMany = [ tests: Test ]
-
-    UUID id
-    String name
-    String description
-    String shortName
-    double salePrice
-    boolean isActive = true
-    Date dateCreated
-    Date lastUpdated
-    Integer sortOrder
-    Sample sample
 
     @Override
     String toString() {

@@ -18,7 +18,7 @@
                 <constraints nullable="false"/>
             </column>
             <column name="name" type="VARCHAR(255)">
-                <constraints nullable="false"/>
+                <constraints nullable="false" unique="true"/>
             </column>
             <column name="description" type="VARCHAR(255)">
                 <constraints nullable="false"/>
@@ -45,10 +45,10 @@
                 <constraints nullable="false"/>
             </column>
             <column name="name" type="VARCHAR(255)">
-                <constraints nullable="false"/>
+                <constraints nullable="false" unique="true"/>
             </column>
             <column name="short_name" type="VARCHAR(10)">
-                <constraints nullable="false"/>
+                <constraints nullable="true" unique="true"/>
             </column>
             <column name="is_active" type="boolean">
                 <constraints nullable="false"/>
@@ -75,13 +75,13 @@
                 <constraints nullable="false"/>
             </column>
             <column name="name" type="VARCHAR(40)">
-                <constraints nullable="false"/>
+                <constraints nullable="false" unique="true"/>
             </column>
             <column name="description" type="VARCHAR(255)">
                 <constraints nullable="false"/>
             </column>
             <column name="short_name" type="VARCHAR(10)">
-                <constraints nullable="false"/>
+                <constraints nullable="true" unique="true"/>
             </column>
             <column name="sample_id" type="UUID">
                 <constraints nullable="false"/>
@@ -114,10 +114,10 @@
                 <constraints nullable="false"/>
             </column>
             <column name="name" type="VARCHAR(255)">
-                <constraints nullable="false"/>
+                <constraints nullable="false" unique="true"/>
             </column>
             <column name="short_name" type="VARCHAR(10)">
-                <constraints nullable="false"/>
+                <constraints nullable="true" unique="true"/>
             </column>
             <column name="description" type="VARCHAR(255)">
                 <constraints nullable="false"/>
@@ -144,51 +144,39 @@
     </changeSet>
 
     <changeSet author="tw" id="5">
-        <comment>Unique constraint on Department 'name'</comment>
-        <addUniqueConstraint columnNames="name" constraintName="department_name_key" deferrable="false" disabled="false"
-                             initiallyDeferred="false" tableName="department" />
-    </changeSet>
-
-    <changeSet author="tw" id="6">
-        <comment>Unique constraint on Test 'name'</comment>
-        <addUniqueConstraint columnNames="name" constraintName="test_name_key" deferrable="false" disabled="false"
-                             initiallyDeferred="false" tableName="test" />
-    </changeSet>
-
-    <changeSet author="tw" id="7">
         <comment>Foreign key constraint on Department in Test</comment>
         <addForeignKeyConstraint baseColumnNames="department_id" baseTableName="test"
                                  constraintName="test_department_constraint"
                                  deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION"
                                  referencedColumnNames="id" referencedTableName="department"
-                                 referencesUniqueColumn="false"/>
+                                 referencesUniqueColumn="true"/>
     </changeSet>
-    <changeSet author="tw" id="8">
+    <changeSet author="tw" id="6">
         <comment>Foreign key constraint on Panel in Test</comment>
         <addForeignKeyConstraint baseColumnNames="panel_id" baseTableName="test"
                                  constraintName="test_panel_constraint" deferrable="false" initiallyDeferred="false"
                                  onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id"
                                  referencedTableName="panel"
-                                 referencesUniqueColumn="false"/>
+                                 referencesUniqueColumn="true"/>
     </changeSet>
-    <changeSet author="tw" id="9">
+    <changeSet author="tw" id="7">
         <comment>Foreign key constraint on Sample in Test</comment>
         <addForeignKeyConstraint baseColumnNames="sample_id" baseTableName="test"
                                  constraintName="test_sample_constraint" deferrable="false" initiallyDeferred="false"
                                  onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id"
                                  referencedTableName="sample"
-                                 referencesUniqueColumn="false"/>
+                                 referencesUniqueColumn="true"/>
     </changeSet>
-    <changeSet author="tw" id="10">
+    <changeSet author="tw" id="8">
         <comment>Foreign key constraint on Sample in Panel</comment>
         <addForeignKeyConstraint baseColumnNames="sample_id" baseTableName="panel"
                                  constraintName="panel_sample_constraint" deferrable="false" initiallyDeferred="false"
                                  onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id"
                                  referencedTableName="sample"
-                                 referencesUniqueColumn="false"/>
+                                 referencesUniqueColumn="true"/>
     </changeSet>
 
-    <changeSet author="ict4h" id="12">
+    <changeSet author="ict4h" id="9">
         <createTable tableName="event_records" >
             <column name="id" type="serial">
                 <constraints nullable="false" primaryKey="true"/>
@@ -211,25 +199,25 @@
         </createTable>
     </changeSet>
 
-    <changeSet author="ict4h" id="13">
+    <changeSet author="ict4h" id="1">
         <modifyDataType tableName="chunking_history" columnName="id" newDataType="int"/>
         <addAutoIncrement tableName="chunking_history" columnName="id" columnDataType="int"/>
         <modifyDataType tableName="event_records" columnName="id" newDataType="int"/>
         <addAutoIncrement tableName="event_records" columnName="id" columnDataType="int"/>
     </changeSet>
-    <changeSet author="ict4h" id="14">
+    <changeSet author="ict4h" id="2">
         <insert tableName="chunking_history" >
             <column name="chunk_length" valueNumeric="5"></column>
             <column name="start" valueNumeric="1"></column>
         </insert>
     </changeSet>
 
-    <changeSet author="ict4h" id="15">
+    <changeSet author="ict4h" id="3">
         <addColumn tableName="event_records" >
             <column name="category" type="varchar(255)"></column>
         </addColumn>
     </changeSet>
-    <changeSet author="ict4h" id="16">
+    <changeSet author="ict4h" id="4">
         <createTable tableName="event_records_offset_marker" >
             <column name="id" type="int" autoIncrement="true">
                 <constraints nullable="false" primaryKey="true"/>
@@ -240,13 +228,7 @@
         </createTable>
     </changeSet>
 
-    <changeSet author="tw" id="17">
-        <comment>Unique constraint on Sample 'name'</comment>
-        <addUniqueConstraint columnNames="name" constraintName="sample_name_key" deferrable="false" disabled="false"
-                             initiallyDeferred="false" tableName="sample"/>
-    </changeSet>
-
-    <changeSet author="tw" id="18">
+    <changeSet author="tw" id="10">
         <comment>Panel Test Association</comment>
         <createTable tableName="panel_test" >
             <column name="panel_id" type="UUID">
@@ -261,15 +243,186 @@
                                  constraintName="paneltest_panel_constraint"
                                  deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION"
                                  referencedColumnNames="id" referencedTableName="panel"
-                                 referencesUniqueColumn="false"/>
+                                 referencesUniqueColumn="true"/>
 
         <addForeignKeyConstraint baseColumnNames="test_id" baseTableName="panel_test"
                                  constraintName="paneltest_test_constraint"
                                  deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION"
                                  referencedColumnNames="id" referencedTableName="test"
-                                 referencesUniqueColumn="false"/>
+                                 referencesUniqueColumn="true"/>
         <addPrimaryKey columnNames="panel_id, test_id"
                        constraintName="pk_panel_test"
                        tableName="panel_test"/>
     </changeSet>
+
+    <changeSet author="tw" id="11">
+        <comment>Create Drug Form table</comment>
+        <createTable tableName="drug_form" >
+            <column name="id" type="UUID">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="drug_form_pkey"/>
+            </column>
+            <column name="version" type="int">
+                <constraints nullable="false"/>
+            </column>
+            <column name="date_created" type="TIMESTAMP WITH TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_updated" type="TIMESTAMP WITH TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="name" type="VARCHAR(255)">
+                <constraints nullable="false" unique="true"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet author="tw" id="12">
+        <comment>Create Unit Of Measure Category table</comment>
+        <createTable tableName="unit_of_measure_category" >
+            <column name="id" type="UUID">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="unit_of_measure_category_pkey"/>
+            </column>
+            <column name="version" type="int">
+                <constraints nullable="false"/>
+            </column>
+            <column name="date_created" type="TIMESTAMP WITH TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_updated" type="TIMESTAMP WITH TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="name" type="VARCHAR(255)">
+                <constraints nullable="false" unique="true"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet author="tw" id="13">
+        <comment>Create Unit Of Measure table</comment>
+        <createTable tableName="unit_of_measure" >
+            <column name="id" type="UUID">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="unit_of_measure_pkey"/>
+            </column>
+            <column name="version" type="int">
+                <constraints nullable="false"/>
+            </column>
+            <column name="date_created" type="TIMESTAMP WITH TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_updated" type="TIMESTAMP WITH TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="name" type="VARCHAR(255)">
+                <constraints nullable="false" unique="true"/>
+            </column>
+            <column name="category_id" type="UUID">
+                <constraints nullable="false"/>
+            </column>
+            <column name="is_active" type="boolean">
+                <constraints nullable="false"/>
+            </column>
+            <column name="ratio" type="FLOAT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+        <addForeignKeyConstraint baseColumnNames="category_id" baseTableName="unit_of_measure"
+                                 constraintName="unit_of_measure_category_constraint"
+                                 deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION"
+                                 referencedColumnNames="id" referencedTableName="unit_of_measure_category"
+                                 referencesUniqueColumn="true"/>
+    </changeSet>
+
+    <changeSet author="tw" id="14">
+        <comment>Create Drug Category table</comment>
+        <createTable tableName="drug_category" >
+            <column name="id" type="UUID">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="drug_category_pkey"/>
+            </column>
+            <column name="version" type="int">
+                <constraints nullable="false"/>
+            </column>
+            <column name="date_created" type="TIMESTAMP WITH TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_updated" type="TIMESTAMP WITH TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="name" type="VARCHAR(255)">
+                <constraints nullable="false" unique="true"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet author="tw" id="15">
+        <comment>Create Drug table</comment>
+        <createTable tableName="drug" >
+            <column name="id" type="UUID">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="drug_pkey"/>
+            </column>
+            <column name="version" type="int">
+                <constraints nullable="false"/>
+            </column>
+            <column name="date_created" type="TIMESTAMP WITH TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_updated" type="TIMESTAMP WITH TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="name" type="VARCHAR(255)">
+                <constraints nullable="false" unique="true"/>
+            </column>
+            <column name="generic_name" type="VARCHAR(255)">
+                <constraints nullable="true"/>
+            </column>
+            <column name="short_name" type="VARCHAR(10)">
+                <constraints nullable="true" unique="true"/>
+            </column>
+            <column name="form_id" type="UUID">
+                <constraints nullable="false"/>
+            </column>
+            <column name="sale_unit_of_measure_id" type="UUID">
+                <constraints nullable="false"/>
+            </column>
+            <column name="purchase_unit_of_measure_id" type="UUID">
+                <constraints nullable="false"/>
+            </column>
+            <column name="manufacturer" type="VARCHAR(255)">
+                <constraints nullable="true"/>
+            </column>
+            <column name="cost_price" type="FLOAT">
+                <constraints nullable="true"/>
+            </column>
+            <column name="sale_price" type="FLOAT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="strength" type="FLOAT">
+                <constraints nullable="true"/>
+            </column>
+            <column name="strength_units" type="VARCHAR(255)">
+                <constraints nullable="true"/>
+            </column>
+            <column name="route" type="VARCHAR(255)">
+                <constraints nullable="true"/>
+            </column>
+            <column name="is_active" type="boolean">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+        <addForeignKeyConstraint baseColumnNames="form_id" baseTableName="drug"
+                                 constraintName="drug_form_constraint"
+                                 deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION"
+                                 referencedColumnNames="id" referencedTableName="drug_form"
+                                 referencesUniqueColumn="true"/>
+        <addForeignKeyConstraint baseColumnNames="sale_unit_of_measure_id" baseTableName="drug"
+                                 constraintName="drug_sale_unit_of_measure_constraint"
+                                 deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION"
+                                 referencedColumnNames="id" referencedTableName="unit_of_measure"
+                                 referencesUniqueColumn="true"/>
+        <addForeignKeyConstraint baseColumnNames="purchase_unit_of_measure_id" baseTableName="drug"
+                                 constraintName="drug_purchase_unit_of_measure_constraint"
+                                 deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION"
+                                 referencedColumnNames="id" referencedTableName="unit_of_measure"
+                                 referencesUniqueColumn="true"/>
+    </changeSet>
+
 </databaseChangeLog>

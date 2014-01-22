@@ -25,14 +25,13 @@ class BahmniHibernateListener implements PostInsertEventListener, PostUpdateEven
 
     private void publishEvent(event) {
         def entityId = getEntityId(event)
-        def entityName = getEntityName(event).toLowerCase()
-        pluralize(entityName)
-        String eventUrl = "/reference-data/" + pluralize(entityName) + "/" + entityId;
-        new AtomFeedService(getConnection(event)).publish(entityName, eventUrl);
+        def entityName = getEntityName(event)
+        String eventUrl = "/reference-data/" + snakeCase(entityName) + "/" + entityId;
+        new AtomFeedService(getConnection(event)).publish(snakeCase(entityName), eventUrl);
     }
 
-    private String pluralize(String name) {
-        name + "s"
+    private String snakeCase(String name) {
+        GrailsNameUtils.getNaturalName(name).replaceAll("\\s", "_").toLowerCase()
     }
 
     private Connection getConnection(event) {

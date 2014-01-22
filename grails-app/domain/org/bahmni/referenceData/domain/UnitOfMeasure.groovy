@@ -1,28 +1,28 @@
 package org.bahmni.referenceData.domain
 
-class Sample {
+class UnitOfMeasure {
     UUID id
     String name
-    String shortName
-    boolean isActive = true
     Date dateCreated
     Date lastUpdated
-    Integer sortOrder
+    double ratio
+    boolean isActive = true
+    UnitOfMeasureCategory category
 
     static constraints = {
-        name(blank: false, unique: true)
-        shortName(unique: true)
-        sortOrder(nullable: false)
+        name(nullable: false, blank: false, unique: true)
         isActive(nullable: false)
+        category(nullable: false)
     }
 
     static mapping = {
         sort isActive : "desc"
     }
 
+    static belongsTo = [category: UnitOfMeasureCategory]
+
     @Override
     String toString() {
         return name
     }
-
 }

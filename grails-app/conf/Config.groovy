@@ -92,6 +92,10 @@ grails.gorm.default.mapping = {
     id generator: 'uuid2', type: 'pg-uuid'
 }
 
+grails.gorm.default.constraints = {
+    '*'(nullable: true)
+}
+
 environments {
     development {
         grails.logging.jul.usebridge = true
