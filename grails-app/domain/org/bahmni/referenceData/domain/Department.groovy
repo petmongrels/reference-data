@@ -14,7 +14,7 @@ class Department {
     static constraints = {
         name(nullable: false, blank : false, unique : true)
         isActive(nullable: false)
-        description(widget: 'textarea')
+        description(nullable: false, blank: false, widget: 'textarea')
     }
 
     static mapping = {

@@ -17,7 +17,7 @@ class Panel {
         shortName(unique: true)
         sortOrder(nullable: false)
         isActive(nullable: false)
-        description(widget: 'textarea')
+        description(nullable: false, blank: false, widget: 'textarea')
     }
 
     static mapping = {

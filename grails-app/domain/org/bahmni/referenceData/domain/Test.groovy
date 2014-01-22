@@ -24,7 +24,7 @@ class Test {
         department(nullable: false)
         sample(nullable: false)
         sortOrder(nullable: false)
-        description(widget: 'textarea')
+        description(nullable: false, blank: false, widget: 'textarea')
     }
 
     static belongsTo = [Sample, Department, Panel]

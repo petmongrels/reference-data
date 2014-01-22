@@ -176,7 +176,7 @@
                                  referencesUniqueColumn="true"/>
     </changeSet>
 
-    <changeSet author="ict4h" id="9">
+    <changeSet author="ict4h" id="1">
         <createTable tableName="event_records" >
             <column name="id" type="serial">
                 <constraints nullable="false" primaryKey="true"/>
@@ -199,25 +199,25 @@
         </createTable>
     </changeSet>
 
-    <changeSet author="ict4h" id="1">
+    <changeSet author="ict4h" id="2">
         <modifyDataType tableName="chunking_history" columnName="id" newDataType="int"/>
         <addAutoIncrement tableName="chunking_history" columnName="id" columnDataType="int"/>
         <modifyDataType tableName="event_records" columnName="id" newDataType="int"/>
         <addAutoIncrement tableName="event_records" columnName="id" columnDataType="int"/>
     </changeSet>
-    <changeSet author="ict4h" id="2">
+    <changeSet author="ict4h" id="3">
         <insert tableName="chunking_history" >
             <column name="chunk_length" valueNumeric="5"></column>
             <column name="start" valueNumeric="1"></column>
         </insert>
     </changeSet>
 
-    <changeSet author="ict4h" id="3">
+    <changeSet author="ict4h" id="4">
         <addColumn tableName="event_records" >
             <column name="category" type="varchar(255)"></column>
         </addColumn>
     </changeSet>
-    <changeSet author="ict4h" id="4">
+    <changeSet author="ict4h" id="5">
         <createTable tableName="event_records_offset_marker" >
             <column name="id" type="int" autoIncrement="true">
                 <constraints nullable="false" primaryKey="true"/>
