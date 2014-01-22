@@ -15,6 +15,7 @@ class Test {
     int sortOrder
     Department department
     Sample sample
+    String resultType
 
     static constraints = {
         name(nullable: false, blank: false, unique: true)
@@ -25,6 +26,7 @@ class Test {
         sample(nullable: false)
         sortOrder(nullable: false)
         description(nullable: false, blank: false, widget: 'textarea')
+        resultType(nullable: false, blank: false, inList: ["Numeric", "Dictionary", "Remark"])
     }
 
     static belongsTo = [Sample, Department, Panel]

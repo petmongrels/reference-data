@@ -10,12 +10,12 @@
 	<g:textField name="name" required="" value="${panelInstance?.name}"/>
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: panelInstance, field: 'shortName', 'error')} required">
+<div class="fieldcontain ${hasErrors(bean: panelInstance, field: 'shortName', 'error')} ">
 	<label for="shortName">
 		<g:message code="panel.shortName.label" default="Short Name" />
-		<span class="required-indicator">*</span>
+		
 	</label>
-	<g:textField name="shortName" required="" value="${panelInstance?.shortName}"/>
+	<g:textField name="shortName" value="${panelInstance?.shortName}"/>
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: panelInstance, field: 'sortOrder', 'error')} required">
@@ -34,12 +34,12 @@
 	<g:checkBox name="isActive" value="${panelInstance?.isActive}" />
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: panelInstance, field: 'description', 'error')} ">
+<div class="fieldcontain ${hasErrors(bean: panelInstance, field: 'description', 'error')} required">
 	<label for="description">
 		<g:message code="panel.description.label" default="Description" />
-		
+		<span class="required-indicator">*</span>
 	</label>
-	<g:textArea name="description" cols="40" rows="5" value="${panelInstance?.description}"/>
+	<g:textArea name="description" cols="40" rows="5" required="" value="${panelInstance?.description}"/>
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: panelInstance, field: 'salePrice', 'error')} required">
@@ -50,12 +50,12 @@
 	<g:field name="salePrice" value="${fieldValue(bean: panelInstance, field: 'salePrice')}" required=""/>
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: panelInstance, field: 'sample', 'error')} required">
+<div class="fieldcontain ${hasErrors(bean: panelInstance, field: 'sample', 'error')} ">
 	<label for="sample">
 		<g:message code="panel.sample.label" default="Sample" />
-		<span class="required-indicator">*</span>
+		
 	</label>
-	<g:select id="sample" name="sample.id" from="${org.bahmni.referenceData.domain.Sample.list()}" optionKey="id" required="" value="${panelInstance?.sample?.id}" class="many-to-one"/>
+	<g:select id="sample" name="sample.id" from="${org.bahmni.referenceData.domain.Sample.list()}" optionKey="id" value="${panelInstance?.sample?.id}" class="many-to-one" noSelection="['null': '']"/>
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: panelInstance, field: 'tests', 'error')} ">

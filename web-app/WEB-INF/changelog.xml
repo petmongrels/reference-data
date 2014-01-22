@@ -425,4 +425,25 @@
                                  referencesUniqueColumn="true"/>
     </changeSet>
 
+    <changeSet author="tw" id="16">
+        <comment>Add Category to Drug</comment>
+        <addColumn tableName="drug">
+            <column name="category_id" type="UUID">
+                <constraints nullable="false"/>
+            </column>
+        </addColumn>
+        <addForeignKeyConstraint baseColumnNames="category_id" baseTableName="drug"
+                                 constraintName="drug_category_constraint"
+                                 deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION"
+                                 referencedColumnNames="id" referencedTableName="drug_category"
+                                 referencesUniqueColumn="true"/>
+    </changeSet>
+    <changeSet author="tw" id="17">
+        <comment>Add Result Type to Test</comment>
+        <addColumn tableName="test">
+            <column name="result_type" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+        </addColumn>
+    </changeSet>
 </databaseChangeLog>

@@ -50,6 +50,15 @@
 				</li>
 				</g:if>
 			
+				<g:if test="${drugInstance?.category}">
+				<li class="fieldcontain">
+					<span id="category-label" class="property-label"><g:message code="drug.category.label" default="Category" /></span>
+					
+						<span class="property-value" aria-labelledby="category-label"><g:link controller="drugCategory" action="show" id="${drugInstance?.category?.id}">${drugInstance?.category?.encodeAsHTML()}</g:link></span>
+					
+				</li>
+				</g:if>
+			
 				<g:if test="${drugInstance?.form}">
 				<li class="fieldcontain">
 					<span id="form-label" class="property-label"><g:message code="drug.form.label" default="Form" /></span>

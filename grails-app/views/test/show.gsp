@@ -95,6 +95,15 @@
 				</li>
 				</g:if>
 			
+				<g:if test="${testInstance?.resultType}">
+				<li class="fieldcontain">
+					<span id="resultType-label" class="property-label"><g:message code="test.resultType.label" default="Result Type" /></span>
+					
+						<span class="property-value" aria-labelledby="resultType-label"><g:fieldValue bean="${testInstance}" field="resultType"/></span>
+					
+				</li>
+				</g:if>
+			
 				<g:if test="${testInstance?.dateCreated}">
 				<li class="fieldcontain">
 					<span id="dateCreated-label" class="property-label"><g:message code="test.dateCreated.label" default="Date Created" /></span>

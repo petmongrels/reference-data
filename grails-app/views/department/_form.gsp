@@ -18,11 +18,11 @@
 	<g:checkBox name="isActive" value="${departmentInstance?.isActive}" />
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: departmentInstance, field: 'description', 'error')} ">
+<div class="fieldcontain ${hasErrors(bean: departmentInstance, field: 'description', 'error')} required">
 	<label for="description">
 		<g:message code="department.description.label" default="Description" />
-		
+		<span class="required-indicator">*</span>
 	</label>
-	<g:textArea name="description" cols="40" rows="5" value="${departmentInstance?.description}"/>
+	<g:textArea name="description" cols="40" rows="5" required="" value="${departmentInstance?.description}"/>
 </div>
 

@@ -26,6 +26,14 @@
 	<g:field name="salePrice" value="${fieldValue(bean: drugInstance, field: 'salePrice')}" required=""/>
 </div>
 
+<div class="fieldcontain ${hasErrors(bean: drugInstance, field: 'category', 'error')} required">
+	<label for="category">
+		<g:message code="drug.category.label" default="Category" />
+		<span class="required-indicator">*</span>
+	</label>
+	<g:select id="category" name="category.id" from="${org.bahmni.referenceData.domain.DrugCategory.list()}" optionKey="id" required="" value="${drugInstance?.category?.id}" class="many-to-one"/>
+</div>
+
 <div class="fieldcontain ${hasErrors(bean: drugInstance, field: 'form', 'error')} required">
 	<label for="form">
 		<g:message code="drug.form.label" default="Form" />

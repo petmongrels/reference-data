@@ -8,6 +8,7 @@ class Drug {
     boolean isActive = true
     String genericName
     String shortName
+    DrugCategory category
     DrugForm form
     UnitOfMeasure saleUnitOfMeasure
     UnitOfMeasure purchaseUnitOfMeasure
@@ -22,6 +23,7 @@ class Drug {
         name(nullable: false, blank: false, unique: true)
         isActive(nullable: false)
         salePrice(nullable: false)
+        category(nullable: false)
         form(nullable: false)
         saleUnitOfMeasure(nullable: false)
         purchaseUnitOfMeasure(nullable: false)
@@ -31,7 +33,7 @@ class Drug {
         sort isActive : "desc"
     }
 
-    static belongsTo = [form: DrugForm, saleUnitOfMeasure: UnitOfMeasure, purchaseUnitOfMeasure: UnitOfMeasure]
+    static belongsTo = [category: DrugCategory, form: DrugForm, saleUnitOfMeasure: UnitOfMeasure, purchaseUnitOfMeasure: UnitOfMeasure]
 
     @Override
     String toString() {

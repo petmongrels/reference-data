@@ -2,20 +2,20 @@
 
 
 
-<div class="fieldcontain ${hasErrors(bean: sampleInstance, field: 'name', 'error')} required">
+<div class="fieldcontain ${hasErrors(bean: sampleInstance, field: 'name', 'error')} ">
 	<label for="name">
 		<g:message code="sample.name.label" default="Name" />
-		<span class="required-indicator">*</span>
+		
 	</label>
-	<g:textField name="name" required="" value="${sampleInstance?.name}"/>
+	<g:textField name="name" value="${sampleInstance?.name}"/>
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: sampleInstance, field: 'shortName', 'error')} required">
+<div class="fieldcontain ${hasErrors(bean: sampleInstance, field: 'shortName', 'error')} ">
 	<label for="shortName">
 		<g:message code="sample.shortName.label" default="Short Name" />
-		<span class="required-indicator">*</span>
+		
 	</label>
-	<g:textField name="shortName" required="" value="${sampleInstance?.shortName}"/>
+	<g:textField name="shortName" value="${sampleInstance?.shortName}"/>
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: sampleInstance, field: 'sortOrder', 'error')} required">

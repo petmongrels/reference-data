@@ -10,12 +10,12 @@
 	<g:textField name="name" required="" value="${testInstance?.name}"/>
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: testInstance, field: 'shortName', 'error')} required">
+<div class="fieldcontain ${hasErrors(bean: testInstance, field: 'shortName', 'error')} ">
 	<label for="shortName">
 		<g:message code="test.shortName.label" default="Short Name" />
-		<span class="required-indicator">*</span>
+		
 	</label>
-	<g:textField name="shortName" required="" value="${testInstance?.shortName}"/>
+	<g:textField name="shortName" value="${testInstance?.shortName}"/>
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: testInstance, field: 'salePrice', 'error')} required">
@@ -58,12 +58,20 @@
 	<g:field name="sortOrder" type="number" value="${testInstance.sortOrder}" required=""/>
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: testInstance, field: 'description', 'error')} ">
+<div class="fieldcontain ${hasErrors(bean: testInstance, field: 'description', 'error')} required">
 	<label for="description">
 		<g:message code="test.description.label" default="Description" />
-		
+		<span class="required-indicator">*</span>
 	</label>
-	<g:textArea name="description" cols="40" rows="5" value="${testInstance?.description}"/>
+	<g:textArea name="description" cols="40" rows="5" required="" value="${testInstance?.description}"/>
+</div>
+
+<div class="fieldcontain ${hasErrors(bean: testInstance, field: 'resultType', 'error')} required">
+	<label for="resultType">
+		<g:message code="test.resultType.label" default="Result Type" />
+		<span class="required-indicator">*</span>
+	</label>
+	<g:select name="resultType" from="${testInstance.constraints.resultType.inList}" required="" value="${testInstance?.resultType}" valueMessagePrefix="test.resultType"/>
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: testInstance, field: 'panels', 'error')} ">

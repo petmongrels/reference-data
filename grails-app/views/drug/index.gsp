@@ -30,11 +30,11 @@
 					
 						<g:sortableColumn property="salePrice" title="${message(code: 'drug.salePrice.label', default: 'Sale Price')}" />
 					
+						<th><g:message code="drug.category.label" default="Category" /></th>
+					
 						<th><g:message code="drug.form.label" default="Form" /></th>
 					
 						<th><g:message code="drug.saleUnitOfMeasure.label" default="Sale Unit Of Measure" /></th>
-					
-						<th><g:message code="drug.purchaseUnitOfMeasure.label" default="Purchase Unit Of Measure" /></th>
 					
 					</tr>
 				</thead>
@@ -48,11 +48,11 @@
 					
 						<td>${fieldValue(bean: drugInstance, field: "salePrice")}</td>
 					
+						<td>${fieldValue(bean: drugInstance, field: "category")}</td>
+					
 						<td>${fieldValue(bean: drugInstance, field: "form")}</td>
 					
 						<td>${fieldValue(bean: drugInstance, field: "saleUnitOfMeasure")}</td>
-					
-						<td>${fieldValue(bean: drugInstance, field: "purchaseUnitOfMeasure")}</td>
 					
 					</tr>
 				</g:each>
