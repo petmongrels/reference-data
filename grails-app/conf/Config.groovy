@@ -98,6 +98,7 @@ grails.gorm.default.constraints = {
 
 environments {
     development {
+        grails.dbconsole.enabled = false
         grails.logging.jul.usebridge = true
         grails.plugin.databasemigration.dbDocController.enabled = true
     }
