@@ -26,3 +26,11 @@
 	<g:textArea name="description" cols="40" rows="5" required="" value="${departmentInstance?.description}"/>
 </div>
 
+<div class="fieldcontain ${hasErrors(bean: departmentInstance, field: 'sortOrder', 'error')} required">
+	<label for="sortOrder">
+		<g:message code="department.sortOrder.label" default="Sort Order" />
+		<span class="required-indicator">*</span>
+	</label>
+	<g:field name="sortOrder" type="number" value="${departmentInstance.sortOrder}" required=""/>
+</div>
+

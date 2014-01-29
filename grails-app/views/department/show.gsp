@@ -50,6 +50,15 @@
 				</li>
 				</g:if>
 			
+				<g:if test="${departmentInstance?.sortOrder}">
+				<li class="fieldcontain">
+					<span id="sortOrder-label" class="property-label"><g:message code="department.sortOrder.label" default="Sort Order" /></span>
+					
+						<span class="property-value" aria-labelledby="sortOrder-label"><g:fieldValue bean="${departmentInstance}" field="sortOrder"/></span>
+					
+				</li>
+				</g:if>
+			
 				<g:if test="${departmentInstance?.dateCreated}">
 				<li class="fieldcontain">
 					<span id="dateCreated-label" class="property-label"><g:message code="department.dateCreated.label" default="Date Created" /></span>
