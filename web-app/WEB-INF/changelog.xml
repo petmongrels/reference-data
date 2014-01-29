@@ -446,4 +446,12 @@
             </column>
         </addColumn>
     </changeSet>
+    <changeSet author="tw" id="18">
+        <comment>Add Result Type to Test</comment>
+        <addColumn tableName="department">
+            <column name="sort_order" type="int">
+                <constraints nullable="false"/>
+            </column>
+        </addColumn>
+    </changeSet>
 </databaseChangeLog>
