@@ -47,7 +47,7 @@
 		<g:message code="drug.saleUnitOfMeasure.label" default="Sale Unit Of Measure" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:select id="saleUnitOfMeasure" name="saleUnitOfMeasure.id" from="${org.bahmni.referenceData.domain.UnitOfMeasure.list()}" optionKey="id" required="" value="${drugInstance?.saleUnitOfMeasure?.id}" class="many-to-one"/>
+	<g:select id="saleUnitOfMeasure" name="saleUnitOfMeasure.id" from="${org.bahmni.referenceData.domain.ProductUnitOfMeasure.list()}" optionKey="id" required="" value="${drugInstance?.saleUnitOfMeasure?.id}" class="many-to-one"/>
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: drugInstance, field: 'purchaseUnitOfMeasure', 'error')} required">
@@ -55,7 +55,7 @@
 		<g:message code="drug.purchaseUnitOfMeasure.label" default="Purchase Unit Of Measure" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:select id="purchaseUnitOfMeasure" name="purchaseUnitOfMeasure.id" from="${org.bahmni.referenceData.domain.UnitOfMeasure.list()}" optionKey="id" required="" value="${drugInstance?.purchaseUnitOfMeasure?.id}" class="many-to-one"/>
+	<g:select id="purchaseUnitOfMeasure" name="purchaseUnitOfMeasure.id" from="${org.bahmni.referenceData.domain.ProductUnitOfMeasure.list()}" optionKey="id" required="" value="${drugInstance?.purchaseUnitOfMeasure?.id}" class="many-to-one"/>
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: drugInstance, field: 'costPrice', 'error')} ">

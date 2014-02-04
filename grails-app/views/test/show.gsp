@@ -133,6 +133,15 @@
 				</li>
 				</g:if>
 			
+				<g:if test="${testInstance?.testUnitOfMeasure}">
+				<li class="fieldcontain">
+					<span id="testUnitOfMeasure-label" class="property-label"><g:message code="test.testUnitOfMeasure.label" default="Test Unit Of Measure" /></span>
+					
+						<span class="property-value" aria-labelledby="testUnitOfMeasure-label"><g:link controller="testUnitOfMeasure" action="show" id="${testInstance?.testUnitOfMeasure?.id}">${testInstance?.testUnitOfMeasure?.encodeAsHTML()}</g:link></span>
+					
+				</li>
+				</g:if>
+			
 			</ol>
 			<g:form url="[resource:testInstance, action:'delete']" method="DELETE">
 				<fieldset class="buttons">

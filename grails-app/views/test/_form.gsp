@@ -82,3 +82,11 @@
 	
 </div>
 
+<div class="fieldcontain ${hasErrors(bean: testInstance, field: 'testUnitOfMeasure', 'error')} ">
+	<label for="testUnitOfMeasure">
+		<g:message code="test.testUnitOfMeasure.label" default="Test Unit Of Measure" />
+		
+	</label>
+	<g:select id="testUnitOfMeasure" name="testUnitOfMeasure.id" from="${org.bahmni.referenceData.domain.TestUnitOfMeasure.list()}" optionKey="id" value="${testInstance?.testUnitOfMeasure?.id}" class="many-to-one" noSelection="['null': '']"/>
+</div>
+

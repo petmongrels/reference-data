@@ -454,4 +454,48 @@
             </column>
         </addColumn>
     </changeSet>
+    <changeSet author="tw" id="19">
+        <comment>Rename tables</comment>
+        <renameTable newTableName="product_unit_of_measure"
+                     oldTableName="unit_of_measure"/>
+        <renameTable newTableName="product_unit_of_measure_category"
+                     oldTableName="unit_of_measure_category"/>
+    </changeSet>
+    <changeSet author="tw" id="20">
+        <comment>Create unit of measure for tests</comment>
+        <createTable tableName="test_unit_of_measure" >
+            <column name="id" type="UUID">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="test_unit_of_measure_pkey"/>
+            </column>
+            <column name="version" type="int">
+                <constraints nullable="false"/>
+            </column>
+            <column name="date_created" type="TIMESTAMP WITH TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_updated" type="TIMESTAMP WITH TIME ZONE">
+                <constraints nullable="false"/>
+            </column>
+            <column name="name" type="VARCHAR(255)">
+                <constraints nullable="false" unique="true"/>
+            </column>
+            <column name="is_active" type="boolean">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="tw" id="21">
+        <comment>Add unit of measure to test</comment>
+        <addColumn tableName="test">
+            <column name="test_unit_of_measure_id" type="UUID">
+            </column>
+        </addColumn>
+    </changeSet>
+    <changeSet author="tw" id="22">
+        <addForeignKeyConstraint baseColumnNames="test_unit_of_measure_id" baseTableName="test"
+                                 constraintName="test_test_unit_of_measure_fk"
+                                 deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION"
+                                 referencedColumnNames="id" referencedTableName="test_unit_of_measure"
+                                 referencesUniqueColumn="true"/>
+    </changeSet>
 </databaseChangeLog>

@@ -1,13 +1,13 @@
 package org.bahmni.referenceData.domain
 
-class UnitOfMeasure {
+class ProductUnitOfMeasure {
     UUID id
     String name
     Date dateCreated
     Date lastUpdated
     double ratio
     boolean isActive = true
-    UnitOfMeasureCategory category
+    ProductUnitOfMeasureCategory category
 
     static constraints = {
         name(nullable: false, blank: false, unique: true)
@@ -19,7 +19,7 @@ class UnitOfMeasure {
         sort isActive : "desc"
     }
 
-    static belongsTo = [category: UnitOfMeasureCategory]
+    static belongsTo = [category: ProductUnitOfMeasureCategory]
 
     @Override
     String toString() {

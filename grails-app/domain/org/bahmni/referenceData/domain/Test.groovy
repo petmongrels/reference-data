@@ -1,8 +1,5 @@
 package org.bahmni.referenceData.domain
 
-import groovy.util.logging.Log4j
-
-@Log4j
 class Test {
     UUID id
     String name
@@ -16,6 +13,7 @@ class Test {
     Department department
     Sample sample
     String resultType
+    TestUnitOfMeasure testUnitOfMeasure
 
     static constraints = {
         name(nullable: false, blank: false, unique: true)
@@ -29,7 +27,7 @@ class Test {
         resultType(nullable: false, blank: false, inList: ["Numeric", "Dictionary", "Remark"])
     }
 
-    static belongsTo = [Sample, Department, Panel]
+    static belongsTo = [Sample, Department, Panel, TestUnitOfMeasure]
 
     static hasMany = [ panels: Panel ]
 

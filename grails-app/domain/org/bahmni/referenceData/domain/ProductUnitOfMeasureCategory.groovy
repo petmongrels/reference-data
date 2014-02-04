@@ -1,6 +1,6 @@
 package org.bahmni.referenceData.domain
 
-class UnitOfMeasureCategory {
+class ProductUnitOfMeasureCategory {
     UUID id
     String name
     Date dateCreated

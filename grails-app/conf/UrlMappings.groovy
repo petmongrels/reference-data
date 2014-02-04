@@ -14,8 +14,9 @@ class UrlMappings {
         "/drug"(resources:'drug')
         "/drug_category"(resources:'drugCategory')
         "/drug_form"(resources:'drugForm')
-        "/unit_of_measure"(resources:'unitOfMeasure')
-        "/unit_of_measure_category"(resources:'unitOfMeasureCategory')
+        "/product_unit_of_measure"(resources:'productUnitOfMeasure')
+        "/product_unit_of_measure_category"(resources:'productUnitOfMeasureCategory')
+        "/test_unit_of_measure"(resources:'testUnitOfMeasure')
 
         "/"(view:"/homepage")
         "500"(view:'/error')

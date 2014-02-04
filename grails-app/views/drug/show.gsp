@@ -72,7 +72,7 @@
 				<li class="fieldcontain">
 					<span id="saleUnitOfMeasure-label" class="property-label"><g:message code="drug.saleUnitOfMeasure.label" default="Sale Unit Of Measure" /></span>
 					
-						<span class="property-value" aria-labelledby="saleUnitOfMeasure-label"><g:link controller="unitOfMeasure" action="show" id="${drugInstance?.saleUnitOfMeasure?.id}">${drugInstance?.saleUnitOfMeasure?.encodeAsHTML()}</g:link></span>
+						<span class="property-value" aria-labelledby="saleUnitOfMeasure-label"><g:link controller="productUnitOfMeasure" action="show" id="${drugInstance?.saleUnitOfMeasure?.id}">${drugInstance?.saleUnitOfMeasure?.encodeAsHTML()}</g:link></span>
 					
 				</li>
 				</g:if>
@@ -81,7 +81,7 @@
 				<li class="fieldcontain">
 					<span id="purchaseUnitOfMeasure-label" class="property-label"><g:message code="drug.purchaseUnitOfMeasure.label" default="Purchase Unit Of Measure" /></span>
 					
-						<span class="property-value" aria-labelledby="purchaseUnitOfMeasure-label"><g:link controller="unitOfMeasure" action="show" id="${drugInstance?.purchaseUnitOfMeasure?.id}">${drugInstance?.purchaseUnitOfMeasure?.encodeAsHTML()}</g:link></span>
+						<span class="property-value" aria-labelledby="purchaseUnitOfMeasure-label"><g:link controller="productUnitOfMeasure" action="show" id="${drugInstance?.purchaseUnitOfMeasure?.id}">${drugInstance?.purchaseUnitOfMeasure?.encodeAsHTML()}</g:link></span>
 					
 				</li>
 				</g:if>

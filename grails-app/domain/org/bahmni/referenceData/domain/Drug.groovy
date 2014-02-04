@@ -10,8 +10,8 @@ class Drug {
     String shortName
     DrugCategory category
     DrugForm form
-    UnitOfMeasure saleUnitOfMeasure
-    UnitOfMeasure purchaseUnitOfMeasure
+    ProductUnitOfMeasure saleUnitOfMeasure
+    ProductUnitOfMeasure purchaseUnitOfMeasure
     String manufacturer
     Double costPrice
     Double salePrice
@@ -33,7 +33,7 @@ class Drug {
         sort isActive : "desc"
     }
 
-    static belongsTo = [category: DrugCategory, form: DrugForm, saleUnitOfMeasure: UnitOfMeasure, purchaseUnitOfMeasure: UnitOfMeasure]
+    static belongsTo = [category: DrugCategory, form: DrugForm, saleUnitOfMeasure: ProductUnitOfMeasure, purchaseUnitOfMeasure: ProductUnitOfMeasure]
 
     @Override
     String toString() {
