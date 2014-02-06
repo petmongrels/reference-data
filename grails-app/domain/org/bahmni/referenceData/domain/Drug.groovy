@@ -21,6 +21,7 @@ class Drug {
 
     static constraints = {
         name(nullable: false, blank: false, unique: true)
+        genericName(nullable: false, blank: false)
         isActive(nullable: false)
         salePrice(nullable: false)
         category(nullable: false)

@@ -41,6 +41,15 @@
 				</li>
 				</g:if>
 			
+				<g:if test="${drugInstance?.genericName}">
+				<li class="fieldcontain">
+					<span id="genericName-label" class="property-label"><g:message code="drug.genericName.label" default="Generic Name" /></span>
+					
+						<span class="property-value" aria-labelledby="genericName-label"><g:fieldValue bean="${drugInstance}" field="genericName"/></span>
+					
+				</li>
+				</g:if>
+			
 				<g:if test="${drugInstance?.salePrice}">
 				<li class="fieldcontain">
 					<span id="salePrice-label" class="property-label"><g:message code="drug.salePrice.label" default="Sale Price" /></span>
@@ -100,15 +109,6 @@
 					<span id="dateCreated-label" class="property-label"><g:message code="drug.dateCreated.label" default="Date Created" /></span>
 					
 						<span class="property-value" aria-labelledby="dateCreated-label"><g:formatDate date="${drugInstance?.dateCreated}" /></span>
-					
-				</li>
-				</g:if>
-			
-				<g:if test="${drugInstance?.genericName}">
-				<li class="fieldcontain">
-					<span id="genericName-label" class="property-label"><g:message code="drug.genericName.label" default="Generic Name" /></span>
-					
-						<span class="property-value" aria-labelledby="genericName-label"><g:fieldValue bean="${drugInstance}" field="genericName"/></span>
 					
 				</li>
 				</g:if>

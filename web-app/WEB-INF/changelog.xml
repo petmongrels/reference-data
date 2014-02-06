@@ -498,4 +498,7 @@
                                  referencedColumnNames="id" referencedTableName="test_unit_of_measure"
                                  referencesUniqueColumn="true"/>
     </changeSet>
+    <changeSet author="tw" id="23">
+        <addNotNullConstraint columnDataType="VARCHAR(255)" columnName="generic_name" tableName="drug"/>
+    </changeSet>
 </databaseChangeLog>
