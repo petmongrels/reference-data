@@ -501,4 +501,13 @@
     <changeSet author="tw" id="23">
         <addNotNullConstraint columnDataType="VARCHAR(255)" columnName="generic_name" tableName="drug"/>
     </changeSet>
+    <changeSet author="tw" id="24">
+        <dropUniqueConstraint tableName="product_unit_of_measure" constraintName="unit_of_measure_name_key"/>
+    </changeSet>
+    <changeSet author="tw" id="25">
+        <dropUniqueConstraint tableName="drug" constraintName="drug_short_name_key"/>
+    </changeSet>
+    <changeSet author="tw" id="26">
+        <dropUniqueConstraint tableName="drug" constraintName="drug_name_key"/>
+    </changeSet>
 </databaseChangeLog>

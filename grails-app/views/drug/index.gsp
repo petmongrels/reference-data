@@ -26,9 +26,9 @@
 					
 						<g:sortableColumn property="name" title="${message(code: 'drug.name.label', default: 'Name')}" />
 					
-						<g:sortableColumn property="isActive" title="${message(code: 'drug.isActive.label', default: 'Is Active')}" />
-					
 						<g:sortableColumn property="genericName" title="${message(code: 'drug.genericName.label', default: 'Generic Name')}" />
+					
+						<g:sortableColumn property="isActive" title="${message(code: 'drug.isActive.label', default: 'Is Active')}" />
 					
 						<g:sortableColumn property="salePrice" title="${message(code: 'drug.salePrice.label', default: 'Sale Price')}" />
 					
@@ -44,9 +44,9 @@
 					
 						<td><g:link action="show" id="${drugInstance.id}">${fieldValue(bean: drugInstance, field: "name")}</g:link></td>
 					
-						<td><g:formatBoolean boolean="${drugInstance.isActive}" /></td>
-					
 						<td>${fieldValue(bean: drugInstance, field: "genericName")}</td>
+					
+						<td><g:formatBoolean boolean="${drugInstance.isActive}" /></td>
 					
 						<td>${fieldValue(bean: drugInstance, field: "salePrice")}</td>
 					

@@ -20,7 +20,7 @@ class Drug {
     String route
 
     static constraints = {
-        name(nullable: false, blank: false, unique: true)
+        name(nullable: false, blank: false)
         genericName(nullable: false, blank: false)
         isActive(nullable: false)
         salePrice(nullable: false)

@@ -10,20 +10,20 @@
 	<g:textField name="name" required="" value="${drugInstance?.name}"/>
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: drugInstance, field: 'isActive', 'error')} ">
-	<label for="isActive">
-		<g:message code="drug.isActive.label" default="Is Active" />
-		
-	</label>
-	<g:checkBox name="isActive" value="${drugInstance?.isActive}" />
-</div>
-
 <div class="fieldcontain ${hasErrors(bean: drugInstance, field: 'genericName', 'error')} required">
 	<label for="genericName">
 		<g:message code="drug.genericName.label" default="Generic Name" />
 		<span class="required-indicator">*</span>
 	</label>
 	<g:textField name="genericName" required="" value="${drugInstance?.genericName}"/>
+</div>
+
+<div class="fieldcontain ${hasErrors(bean: drugInstance, field: 'isActive', 'error')} ">
+	<label for="isActive">
+		<g:message code="drug.isActive.label" default="Is Active" />
+		
+	</label>
+	<g:checkBox name="isActive" value="${drugInstance?.isActive}" />
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: drugInstance, field: 'salePrice', 'error')} required">
