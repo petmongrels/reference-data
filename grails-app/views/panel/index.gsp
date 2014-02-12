@@ -34,7 +34,7 @@
 					
 						<g:sortableColumn property="description" title="${message(code: 'panel.description.label', default: 'Description')}" />
 					
-						<g:sortableColumn property="dateCreated" title="${message(code: 'panel.dateCreated.label', default: 'Date Created')}" />
+						<th><g:message code="panel.sample.label" default="Sample" /></th>
 					
 					</tr>
 				</thead>
@@ -52,7 +52,7 @@
 					
 						<td>${fieldValue(bean: panelInstance, field: "description")}</td>
 					
-						<td><g:formatDate date="${panelInstance.dateCreated}" /></td>
+						<td>${fieldValue(bean: panelInstance, field: "sample")}</td>
 					
 					</tr>
 				</g:each>

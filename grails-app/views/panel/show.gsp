@@ -68,6 +68,15 @@
 				</li>
 				</g:if>
 			
+				<g:if test="${panelInstance?.sample}">
+				<li class="fieldcontain">
+					<span id="sample-label" class="property-label"><g:message code="panel.sample.label" default="Sample" /></span>
+					
+						<span class="property-value" aria-labelledby="sample-label"><g:link controller="sample" action="show" id="${panelInstance?.sample?.id}">${panelInstance?.sample?.encodeAsHTML()}</g:link></span>
+					
+				</li>
+				</g:if>
+			
 				<g:if test="${panelInstance?.dateCreated}">
 				<li class="fieldcontain">
 					<span id="dateCreated-label" class="property-label"><g:message code="panel.dateCreated.label" default="Date Created" /></span>
@@ -91,15 +100,6 @@
 					<span id="salePrice-label" class="property-label"><g:message code="panel.salePrice.label" default="Sale Price" /></span>
 					
 						<span class="property-value" aria-labelledby="salePrice-label"><g:fieldValue bean="${panelInstance}" field="salePrice"/></span>
-					
-				</li>
-				</g:if>
-			
-				<g:if test="${panelInstance?.sample}">
-				<li class="fieldcontain">
-					<span id="sample-label" class="property-label"><g:message code="panel.sample.label" default="Sample" /></span>
-					
-						<span class="property-value" aria-labelledby="sample-label"><g:link controller="sample" action="show" id="${panelInstance?.sample?.id}">${panelInstance?.sample?.encodeAsHTML()}</g:link></span>
 					
 				</li>
 				</g:if>

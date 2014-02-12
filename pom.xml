@@ -15,10 +15,6 @@
     <properties>
         <grails.version>2.3.4</grails.version>
         <atomfeed.version>0.9.3-SNAPSHOT</atomfeed.version>
-        <jdbc.driverClassName>org.postgresql.Driver</jdbc.driverClassName>
-        <jdbc.url>jdbc:postgresql://localhost/reference_data</jdbc.url>
-        <jdbc.username>reference_data</jdbc.username>
-        <jdbc.password>reference_data</jdbc.password>
     </properties>
 
     <dependencies>
@@ -251,10 +247,7 @@
                 <version>3.0.5</version>
                 <configuration>
                     <changeLogFile>web-app/WEB-INF/changelog.xml</changeLogFile>
-                    <driver>${jdbc.driverClassName}</driver>
-                    <url>${jdbc.url}</url>
-                    <username>${jdbc.username}</username>
-                    <password>${jdbc.password}</password>
+                    <propertyFile>liquibase.properties</propertyFile>
                 </configuration>
                 <executions>
                     <execution>

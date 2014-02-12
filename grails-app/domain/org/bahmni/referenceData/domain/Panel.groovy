@@ -18,6 +18,7 @@ class Panel {
         sortOrder(nullable: false)
         isActive(nullable: false)
         description(nullable: false, blank: false, widget: 'textarea')
+        sample(nullable: false, blank: false)
     }
 
     static mapping = {

@@ -42,20 +42,20 @@
 	<g:textArea name="description" cols="40" rows="5" required="" value="${panelInstance?.description}"/>
 </div>
 
+<div class="fieldcontain ${hasErrors(bean: panelInstance, field: 'sample', 'error')} required">
+	<label for="sample">
+		<g:message code="panel.sample.label" default="Sample" />
+		<span class="required-indicator">*</span>
+	</label>
+	<g:select id="sample" name="sample.id" from="${org.bahmni.referenceData.domain.Sample.list()}" optionKey="id" required="" value="${panelInstance?.sample?.id}" class="many-to-one"/>
+</div>
+
 <div class="fieldcontain ${hasErrors(bean: panelInstance, field: 'salePrice', 'error')} required">
 	<label for="salePrice">
 		<g:message code="panel.salePrice.label" default="Sale Price" />
 		<span class="required-indicator">*</span>
 	</label>
 	<g:field name="salePrice" value="${fieldValue(bean: panelInstance, field: 'salePrice')}" required=""/>
-</div>
-
-<div class="fieldcontain ${hasErrors(bean: panelInstance, field: 'sample', 'error')} ">
-	<label for="sample">
-		<g:message code="panel.sample.label" default="Sample" />
-		
-	</label>
-	<g:select id="sample" name="sample.id" from="${org.bahmni.referenceData.domain.Sample.list()}" optionKey="id" value="${panelInstance?.sample?.id}" class="many-to-one" noSelection="['null': '']"/>
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: panelInstance, field: 'tests', 'error')} ">
