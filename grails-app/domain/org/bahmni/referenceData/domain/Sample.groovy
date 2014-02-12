@@ -11,7 +11,7 @@ class Sample {
 
     static constraints = {
         name(blank: false, unique: true)
-        shortName(unique: true)
+        shortName(unique: false)
         sortOrder(nullable: false)
         isActive(nullable: false)
     }

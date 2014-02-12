@@ -510,4 +510,7 @@
     <changeSet author="tw" id="26">
         <dropUniqueConstraint tableName="drug" constraintName="drug_name_key"/>
     </changeSet>
+    <changeSet author="tw" id="27">
+        <dropUniqueConstraint tableName="sample" constraintName="sample_short_name_key"/>
+    </changeSet>
 </databaseChangeLog>
