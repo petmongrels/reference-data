@@ -8,7 +8,7 @@ class TestUnitOfMeasure {
     Date lastUpdated
 
     static constraints = {
-        name(nullable: false, blank: false, unique: true)
+        name(nullable: false, unique: true)
     }
 
     @Override

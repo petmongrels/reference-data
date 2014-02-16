@@ -2,12 +2,12 @@
 
 
 
-<div class="fieldcontain ${hasErrors(bean: testUnitOfMeasureInstance, field: 'name', 'error')} required">
+<div class="fieldcontain ${hasErrors(bean: testUnitOfMeasureInstance, field: 'name', 'error')} ">
 	<label for="name">
 		<g:message code="testUnitOfMeasure.name.label" default="Name" />
-		<span class="required-indicator">*</span>
+		
 	</label>
-	<g:textField name="name" required="" value="${testUnitOfMeasureInstance?.name}"/>
+	<g:textField name="name" value="${testUnitOfMeasureInstance?.name}"/>
 </div>
 
 <div class="fieldcontain ${hasErrors(bean: testUnitOfMeasureInstance, field: 'isActive', 'error')} ">
