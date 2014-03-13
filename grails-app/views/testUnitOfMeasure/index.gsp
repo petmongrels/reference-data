@@ -51,7 +51,7 @@
 				</tbody>
 			</table>
 			<div class="pagination">
-				<g:paginate total="${testUnitOfMeasureInstanceCount ?: 0}" />
+				<g:paginate action="index" total="${testUnitOfMeasureInstanceCount ?: 0}" />
 			</div>
 		</div>
 	</body>

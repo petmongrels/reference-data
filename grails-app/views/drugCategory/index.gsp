@@ -47,7 +47,7 @@
 				</tbody>
 			</table>
 			<div class="pagination">
-				<g:paginate total="${drugCategoryInstanceCount ?: 0}" />
+				<g:paginate action="index" total="${drugCategoryInstanceCount ?: 0}" />
 			</div>
 		</div>
 	</body>

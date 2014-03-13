@@ -59,7 +59,7 @@
 				</tbody>
 			</table>
 			<div class="pagination">
-				<g:paginate total="${sampleInstanceCount ?: 0}" />
+				<g:paginate action="index" total="${sampleInstanceCount ?: 0}" />
 			</div>
 		</div>
 	</body>

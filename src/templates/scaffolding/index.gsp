@@ -55,7 +55,7 @@
 				</tbody>
 			</table>
 			<div class="pagination">
-				<g:paginate total="\${${propertyName}Count ?: 0}" />
+				<g:paginate action="index" total="\${${propertyName}Count ?: 0}" />
 			</div>
 		</div>
 	</body>
