@@ -38,6 +38,6 @@ class Drug {
 
     @Override
     String toString() {
-        return name
+        return id
     }
 }

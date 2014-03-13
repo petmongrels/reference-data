@@ -10,7 +10,7 @@ class ProductUnitOfMeasure {
     ProductUnitOfMeasureCategory category
 
     static constraints = {
-        name(nullable: false, blank: false)
+        name(nullable: false, blank: false, unique: true)
         isActive(nullable: false)
         category(nullable: false)
     }
