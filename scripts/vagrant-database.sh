@@ -1,4 +1,6 @@
 #!/bin/sh -x
-MACHINE_IP=192.168.33.10
-KEY_FILE=~/.vagrant.d/insecure_private_key
-ssh vagrant@$MACHINE_IP -i $KEY_FILE "sudo su - jss -c 'cd /bahmni_temp/ && ./run-reference-data-liquibase.sh'"
+
+PATH_OF_CURRENT_SCRIPT="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+source $PATH_OF_CURRENT_SCRIPT/vagrant/vagrant_functions.sh
+
+run_in_vagrant -c "sudo su - jss -c 'cd /bahmni_temp/ && ./run-reference-data-liquibase.sh'"
