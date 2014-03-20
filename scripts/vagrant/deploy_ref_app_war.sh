@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/sh -x
 
 TEMP_LOCATION=/tmp/deploy_ref_app
 REF_APP_WAR_LOCATION=/home/jss/apache-tomcat-7.0.22/webapps

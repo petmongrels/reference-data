@@ -15,9 +15,9 @@ For devs -> To setup Reference data application,
 4. `mvn grails:exec -Dcommand=run-app` (run application. Grails runs the application in embedded tomcat)
 You should now be able to access the application at http://localhost:8080/reference-data
 
-5. `mvn clean install -Pvagrant-deploy` (Will deploy the reference-data.war to your Vagrant's tomcat)
+5. `./scripts/vagrant-deploy.sh` (Will deploy the reference-data.war to your Vagrant's tomcat)
 
-6. `mvn clean install -DskipTests -Pvagrant-deploy` (Skip liquibase migration and tests, and deploy to Vagrant's tomcat)
+6. `./scripts/vagrant-database.sh` (Will run the Liquibase migrations on your Vagrant)
 
 Commands
 =========
