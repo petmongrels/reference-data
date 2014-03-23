@@ -1,0 +1,13 @@
+language: groovy
+jdk:
+  - oraclejdk7
+addons:
+  postgresql: "9.3"
+before_install:
+ - gem install compass
+before_script:
+ - psql -U postgres < scripts/setupDB.sql
+ - mvn liquibase:update
+script: mvn clean install
+notifications:
+  email: false
