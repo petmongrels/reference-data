@@ -10,4 +10,8 @@ before_script:
  - mvn liquibase:update
 script: mvn clean install
 notifications:
-  email: false
+  email:
+      recipients:
+        - bahmni@thoughtworks.com
+      on_success: change
+      on_failure: change
