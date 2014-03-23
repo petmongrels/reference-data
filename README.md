@@ -1,6 +1,8 @@
 reference-data
 ==============
 
+[![Build Status](https://travis-ci.org/Bhamni/reference-data.svg?branch=master)](https://travis-ci.org/Bhamni/reference-data)
+
 Application to create reference data for Bahmni application
 
 
