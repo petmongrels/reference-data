@@ -34,6 +34,11 @@ class Drug {
         sort isActive : "desc"
     }
 
+    def beforeValidate() {
+        name = name?.trim()
+        genericName = genericName?.trim()
+    }
+
     static validateUOMCategory(newUnitOfMeasure, drug, field) {
         ProductUnitOfMeasure oldUnitOfMeasure = drug.getPersistentValue(field)
         if(oldUnitOfMeasure != null && !oldUnitOfMeasure.getCategory().getId().equals(newUnitOfMeasure.getCategory().getId())) {
