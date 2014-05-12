@@ -23,6 +23,7 @@ class BootStrap {
             output['department'] = it.department
             output['sample'] = it.sample
             output['resultType'] = it.resultType
+            output['class'] = it.getClass().name
 
             if (it.testUnitOfMeasure != null) {
                 def testUOMOutput = [:]
