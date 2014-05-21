@@ -1,14 +1,33 @@
 package org.bahmni.referenceData.domain
-
-
+import grails.transaction.Transactional
 
 import static org.springframework.http.HttpStatus.*
-import grails.transaction.Transactional
 
 @Transactional(readOnly = true)
 class DepartmentController {
 
-    static allowedMethods = [save: "POST", update: "PUT"]
+    static allowedMethods = [save: "POST", update: "PUT", csvSave: "POST"]
+
+    def uploadCsv(){
+        respond new Department(params)
+    }
+
+    @Transactional
+    def csvSave(Department departmentInstance){
+        def csvFileText = request.getFile('csvFile').inputStream.text
+        csvFileText.eachCsvLine { tokens ->
+            departmentInstance = new Department(params)
+            def result = Department.findByName(tokens[1])
+            if(result){
+                departmentInstance = result
+            }
+            departmentInstance.factory(tokens[0], tokens[1], tokens[2], tokens[3], tokens[4])
+            departmentInstance.save flush: true
+        }
+
+        redirect(action: "index")
+    }
+
 
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)

@@ -23,6 +23,14 @@ class Department {
         sort isActive : "desc"
     }
 
+    def factory(String version, String name, String description, String isActive, String sortOrder){
+        this.version = version.toInteger()
+        this.name = name
+        this.description = description
+        this.isActive = isActive == 't' ? true : false
+        this.sortOrder = sortOrder.toInteger()
+    }
+
     static searchable =  true
 
     @Override
