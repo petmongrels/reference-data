@@ -15,4 +15,9 @@ class TestUnitOfMeasure {
     String toString() {
         return name
     }
+
+    def factory(String name, String isActive) {
+        this.name = name
+        this.isActive = isActive == 't' ? true : false
+    }
 }
