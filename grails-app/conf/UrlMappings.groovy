@@ -7,8 +7,8 @@ class UrlMappings {
             }
         }
 
-        "/test"(resources:'test')
-        "/panel"(resources:'panel')
+        "/test"(resources:'test', includes:['uploadCsv', 'csvSave'])
+        "/panel"(resources:'panel', includes:['uploadCsv', 'csvSave'])
         "/department"(resources:'department', includes:['uploadCsv', 'csvSave'])
         "/sample"(resources:'sample', includes:['uploadCsv', 'csvSave'])
         "/drug"(resources:'drug')
@@ -16,7 +16,7 @@ class UrlMappings {
         "/drug_form"(resources:'drugForm')
         "/product_unit_of_measure"(resources:'productUnitOfMeasure')
         "/product_unit_of_measure_category"(resources:'productUnitOfMeasureCategory')
-        "/test_unit_of_measure"(resources:'testUnitOfMeasure')
+        "/test_unit_of_measure"(resources:'testUnitOfMeasure', includes:['uploadCsv', 'csvSave'])
 
         "/"(view:"/homepage")
         "500"(view:'/error')

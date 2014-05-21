@@ -36,6 +36,19 @@ class Test {
         panels joinTable: "panel_test"
     }
 
+    def factory(String name, String shortName, String description, String salePrice, Department departmentParam,
+                Sample sampleInstance, String sortOrder, String isActive, String resultType, TestUnitOfMeasure testUnitOfMeasureInstance){
+        this.name = name
+        this.shortName = shortName
+        this.description = description
+        this.salePrice = salePrice.toDouble()
+        this.department = departmentParam
+        this.sample = sampleInstance
+        this.sortOrder = sortOrder.toInteger()
+        this.isActive = isActive == 't' ? true : false
+        this.resultType = resultType
+        this.testUnitOfMeasure = testUnitOfMeasureInstance
+    }
     static searchable = true
 
     @Override

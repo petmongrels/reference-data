@@ -8,7 +8,43 @@ import grails.transaction.Transactional
 @Transactional(readOnly = true)
 class PanelController {
 
-    static allowedMethods = [save: "POST", update: "PUT"]
+    static allowedMethods = [save: "POST", update: "PUT", csvSave: "POST"]
+
+    def uploadCsv(){
+        respond new Panel(params)
+    }
+
+    @Transactional
+    def csvSave(Panel panelInstance){
+        def csvFileText = request.getFile('csvFile').inputStream.text
+        csvFileText.eachCsvLine { tokens ->
+            panelInstance = new Panel(params)
+            def result = Panel.findByName(tokens[1])
+            if(result){
+                panelInstance = result
+            }
+            def sample = Sample.findByName(tokens[4])
+            def tests = getTests(tokens[5])
+            panelInstance.factory(tokens[1], tokens[2], tokens[3], sample, tests, tokens[6],
+                    tokens[7], tokens[8])
+            panelInstance.save flush: true
+        }
+
+        redirect(action: "index")
+    }
+
+    def getTests(String testNames) {
+        def tests = testNames.tokenize('|')
+        def testsToAdd = []
+        tests.each {test ->
+            test = test.trim()
+            def result = Test.findByName(test)
+            if(result){
+                testsToAdd.add(result)
+            }
+        }
+        return testsToAdd.toSet()
+    }
 
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)

@@ -10,6 +10,31 @@ class TestController {
 
     static allowedMethods = [save: "POST", update: "PUT"]
 
+
+    def uploadCsv(){
+        respond new Test(params)
+    }
+
+    @Transactional
+    def csvSave(Test testInstance){
+        def csvFileText = request.getFile('csvFile').inputStream.text
+        csvFileText.eachCsvLine { tokens ->
+            testInstance = new Test(params)
+            def result = Test.findByName(tokens[1])
+            if(result){
+                testInstance = result
+            }
+            def department = Department.findByName(tokens[4])
+            def sample = Sample.findByName(tokens[5])
+            def testUnitOfMeasure = TestUnitOfMeasure.findByName(tokens[9])
+            testInstance.factory(tokens[0], tokens[1], tokens[2], tokens[3], department, sample, tokens[6], tokens[7],
+                    tokens[8], testUnitOfMeasure)
+            testInstance.save flush: true
+        }
+
+        redirect(action: "index")
+    }
+
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
         respond Test.list(params), model:[testInstanceCount: Test.count()]

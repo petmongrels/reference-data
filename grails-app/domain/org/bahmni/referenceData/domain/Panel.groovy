@@ -34,4 +34,16 @@ class Panel {
     String toString() {
         return name
     }
+
+    def factory(String name, String description, String shortName, Sample sample, Set<Test> tests,
+                String salePrice, String isActive, String sortOrder) {
+        this.name = name
+        this.description = description
+        this.shortName = shortName
+        this.sample = sample
+        this.tests = tests? tests : null
+        this.salePrice = salePrice.toDouble()
+        this.isActive = isActive == 't' ? true : false
+        this.sortOrder = sortOrder.toInteger()
+    }
 }
