@@ -10,7 +10,7 @@ class UrlMappings {
         "/test"(resources:'test')
         "/panel"(resources:'panel')
         "/department"(resources:'department', includes:['uploadCsv', 'csvSave'])
-        "/sample"(resources:'sample')
+        "/sample"(resources:'sample', includes:['uploadCsv', 'csvSave'])
         "/drug"(resources:'drug')
         "/drug_category"(resources:'drugCategory')
         "/drug_form"(resources:'drugForm')

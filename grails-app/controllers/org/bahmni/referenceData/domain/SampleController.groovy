@@ -8,7 +8,27 @@ import grails.transaction.Transactional
 @Transactional(readOnly = true)
 class SampleController {
 
-    static allowedMethods = [save: "POST", update: "PUT"]
+    static allowedMethods = [save: "POST", update: "PUT", csvSave: "POST"]
+
+    def uploadCsv(){
+        respond new Sample(params)
+    }
+
+    @Transactional
+    def csvSave(Sample sampleInstance){
+        def csvFileText = request.getFile('csvFile').inputStream.text
+        csvFileText.eachCsvLine { tokens ->
+            sampleInstance = new Sample(params)
+            def result = Sample.findByName(tokens[1])
+            if(result){
+                sampleInstance = result
+            }
+            sampleInstance.factory(tokens[0], tokens[1], tokens[2], tokens[3], tokens[4])
+            sampleInstance.save flush: true
+        }
+
+        redirect(action: "index")
+    }
 
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
