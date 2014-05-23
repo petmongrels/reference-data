@@ -13,19 +13,21 @@ class DepartmentController {
     }
 
     @Transactional
-    def csvSave(Department departmentInstance){
-        def csvFileText = request.getFile('csvFile').inputStream.text
-        csvFileText.eachCsvLine { tokens ->
+    def csvSave(Department departmentInstance) {
+        def csvFileStream = request.getFile('csvFile').inputStream
+        csvFileStream.toCsvReader(['skipLines': 1]).eachLine { tokens ->
             departmentInstance = new Department(params)
             def result = Department.findByName(tokens[1])
-            if(result){
+            if (result) {
                 departmentInstance = result
             }
             departmentInstance.factory(tokens[0], tokens[1], tokens[2], tokens[3], tokens[4])
             departmentInstance.save flush: true
         }
 
-        redirect(action: "index")
+
+        flash.message = message(code: 'default.created.message', args: [message(code: 'departmentInstance.label', default: 'All Departments were successfully created')])
+        redirect(uri: '/department/')
     }
 
 

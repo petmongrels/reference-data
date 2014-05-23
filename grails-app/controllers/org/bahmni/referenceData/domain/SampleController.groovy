@@ -16,8 +16,8 @@ class SampleController {
 
     @Transactional
     def csvSave(Sample sampleInstance){
-        def csvFileText = request.getFile('csvFile').inputStream.text
-        csvFileText.eachCsvLine { tokens ->
+        def csvFileText = request.getFile('csvFile').inputStream
+        csvFileText.toCsvReader(['skipLines': 1]).eachLine { tokens ->
             sampleInstance = new Sample(params)
             def result = Sample.findByName(tokens[1])
             if(result){
@@ -26,8 +26,8 @@ class SampleController {
             sampleInstance.factory(tokens[0], tokens[1], tokens[2], tokens[3], tokens[4])
             sampleInstance.save flush: true
         }
-
-        redirect(action: "index")
+        flash.message = message(code: 'default.created.message', args: [message(code: 'departmentInstance.label', default: 'All Samples were successfully created')])
+        redirect(uri: '/sample/')
     }
 
     def index(Integer max) {

@@ -16,8 +16,8 @@ class PanelController {
 
     @Transactional
     def csvSave(Panel panelInstance){
-        def csvFileText = request.getFile('csvFile').inputStream.text
-        csvFileText.eachCsvLine { tokens ->
+        def csvFileText = request.getFile('csvFile').inputStream
+        csvFileText.toCsvReader(['skipLines': 1]).eachLine { tokens ->
             panelInstance = new Panel(params)
             def result = Panel.findByName(tokens[1])
             if(result){
@@ -29,8 +29,8 @@ class PanelController {
                     tokens[7], tokens[8])
             panelInstance.save flush: true
         }
-
-        redirect(action: "index")
+        flash.message = message(code: 'default.created.message', args: [message(code: 'departmentInstance.label', default: 'All Panels were successfully created')])
+        redirect(uri: '/panel/')
     }
 
     def getTests(String testNames) {

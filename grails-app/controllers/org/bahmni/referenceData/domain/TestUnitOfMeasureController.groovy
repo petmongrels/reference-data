@@ -17,7 +17,7 @@ class TestUnitOfMeasureController {
     @Transactional
     def csvSave(TestUnitOfMeasure testUnitOfMeasureInstance){
         def csvFileText = request.getFile('csvFile').inputStream.text
-        csvFileText.eachCsvLine { tokens ->
+        csvFileText.toCsvReader(['skipLines': 1]).eachLine { tokens ->
             testUnitOfMeasureInstance = new TestUnitOfMeasure(params)
             def result = TestUnitOfMeasure.findByName(tokens[0])
             if(result){
@@ -26,8 +26,8 @@ class TestUnitOfMeasureController {
             testUnitOfMeasureInstance.factory(tokens[0], tokens[1])
             testUnitOfMeasureInstance.save flush: true
         }
-
-        redirect(action: "index")
+        flash.message = message(code: 'default.created.message', args: [message(code: 'departmentInstance.label', default: 'All Tests Units of Measures were successfully created')])
+        redirect(uri: '/test_unit_of_measure/')
     }
 
 

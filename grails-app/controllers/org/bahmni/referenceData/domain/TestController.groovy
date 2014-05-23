@@ -17,8 +17,8 @@ class TestController {
 
     @Transactional
     def csvSave(Test testInstance){
-        def csvFileText = request.getFile('csvFile').inputStream.text
-        csvFileText.eachCsvLine { tokens ->
+        def csvFileText = request.getFile('csvFile').inputStream
+        csvFileText.toCsvReader(['skipLines': 1]).eachLine { tokens ->
             testInstance = new Test(params)
             def result = Test.findByName(tokens[1])
             if(result){
@@ -31,8 +31,8 @@ class TestController {
                     tokens[8], testUnitOfMeasure)
             testInstance.save flush: true
         }
-
-        redirect(action: "index")
+        flash.message = message(code: 'default.created.message', args: [message(code: 'departmentInstance.label', default: 'All Tests were successfully created')])
+        redirect(uri: '/test/')
     }
 
     def index(Integer max) {
