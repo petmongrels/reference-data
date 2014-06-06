@@ -12,7 +12,7 @@ class UrlMappings {
         "/test"(resources:'test')
         "/panel/uploadCsv"(controller: 'panel', action: 'uploadCsv')
         "/panel/csvSave"(controller: 'panel', action: 'csvSave')
-        "/panel"(resource: 'panel')
+        "/panel"(resources: 'panel')
         "/department/uploadCsv"(controller: 'department', action: 'uploadCsv')
         "/department/csvSave"(controller: 'department', action: 'csvSave')
         "/department"(resources:'department')
